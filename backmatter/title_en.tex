@@ -1,0 +1,76 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  ENGLISH TITLE PAGE (backmatter/title_en.tex)
+% ==============================================================================
+%
+%  This file defines the layout of the English title page (Reverse Cover).
+%
+% ------------------------------------------------------------------------------
+%  HOW IT WORKS:
+% ------------------------------------------------------------------------------
+%  - All textual values (University, Department, Title, Author, Supervisor,
+%    Advisors, Examiners, and Date) are populated dynamically from
+%    `frontmatter/info.tex`.
+%  - Spacing dimensions (\thesistitleenbefore...) and the logo scale
+%    (\ThesisLogoScale) are elastic glues configured in `styles/common.tex`
+%    and can be customized in `styles/custom.tex`.
+%  - Advisor and Examiner blocks automatically adapt based on whether you
+%    have one, multiple, or no advisors/examiners.
+%  - DO NOT hardcode your personal information here; edit `frontmatter/info.tex`.
+% ==============================================================================
+
+\begin{center}
+\begin{latin}
+
+% University Logo (scale factor is controlled by \ThesisLogoScale in styles/custom.tex)
+\includegraphics[scale=\ThesisLogoScale]{frontmatter/images/logo}
+
+% Institution & Department (English)
+\vspace{\thesistitleenbeforedept}
+{\large\EnglishThesisUniversity} \\
+{\large\textit{\EnglishThesisDepartment}}
+
+% Degree & Field of Study (English)
+\vspace{\thesistitlebeforedatatype}
+{\large\EnglishThesisDegree{} \EnglishThesisType} \\
+{\textit{\EnglishThesisMajor}}
+
+% Thesis Title (English)
+\vspace{\thesistitlebeforetitle}
+{\Large\textbf{\EnglishThesisTitle}}
+
+% Author Name (English)
+\vspace{\thesistitlebeforeauthor}
+{By\vspace{0.15cm}} \\
+{\large\textbf{\EnglishThesisAuthor}\vspace{0.05cm}}
+
+% Supervisor (English)
+\vspace{\thesistitleenbeforesupervisor}
+{Supervisor\vspace{0.15cm}} \\
+{\large\textbf{\EnglishThesisSupervisor}\vspace{0.05cm}}
+
+% Advisor(s) - Automatically rendered if defined in frontmatter/info.tex
+\ifenglishthesisadvisors{%
+\vspace{\thesistitleenbeforeadvisor}
+{\EnglishThesisAdvisorHeader\vspace{0.15cm}} \\
+\ifthesisfield{\EnglishThesisAdvisor}{{\large\textbf{\EnglishThesisAdvisor}}\vspace{0.05cm}}%
+\ifthesisfield{\EnglishThesisAdvisors}{{\large\textbf{\EnglishThesisAdvisors}}\vspace{0.05cm}}%
+\ifthesisfield{\EnglishThesisSecondAdvisor}{\\ {\large\textbf{\EnglishThesisSecondAdvisor}}\vspace{0.05cm}}%
+}
+
+% Examination Committee - Automatically rendered if defined in frontmatter/info.tex
+\ifenglishthesisexaminers{%
+\vspace{\thesistitleenbeforeexaminer}
+{\EnglishThesisExaminerHeader\vspace{0.15cm}} \\
+\ifthesisfield{\EnglishThesisExaminer}{{\large\textbf{\EnglishThesisExaminer}}\vspace{0.05cm}}%
+\ifthesisfield{\EnglishThesisExaminers}{{\large\textbf{\EnglishThesisExaminers}}\vspace{0.05cm}}%
+\ifthesisfield{\EnglishThesisSecondExaminer}{\\ {\large\textbf{\EnglishThesisSecondExaminer}}\vspace{0.05cm}}%
+\ifthesisfield{\EnglishThesisThirdExaminer}{\\ {\large\textbf{\EnglishThesisThirdExaminer}}\vspace{0.05cm}}%
+}
+
+% Defense Date (English)
+\vspace{\thesistitleenbeforedate}
+{\EnglishThesisDate\vspace{-0.5cm}}
+
+\end{latin}
+\end{center}

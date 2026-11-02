@@ -1,0 +1,82 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  DEFENSE APPROVAL / SIGNATURES PAGE (frontmatter/signatures.tex)
+% ==============================================================================
+%
+%  This file formats the official Committee Signatures Page (صفحه تصویب‌نامه).
+%  It lists the thesis title, student name, supervisor, advisors, and examiners
+%  with designated signature lines and signing date.
+%
+% ------------------------------------------------------------------------------
+%  HOW IT WORKS:
+% ------------------------------------------------------------------------------
+%  - Metadata is automatically populated from `frontmatter/info.tex`:
+%      * Title: Uses \ThesisSignTitle (or fallback \ThesisTitle)
+%      * Author: \ThesisAuthor
+%      * Supervisor: \ThesisSupervisor
+%      * Advisor(s): \ThesisAdvisor, \ThesisSecondAdvisor
+%      * Examiner(s): \ThesisExaminer, \ThesisSecondExaminer, \ThesisThirdExaminer
+%      * Date: \ThesisSignDate (or fallback \ThesisDate)
+%  - To toggle this page in the thesis:
+%      Toggle `\include{frontmatter/signatures}` in `thesis.tex`.
+%  - To export as a standalone single-page PDF for printing/signing:
+%      Run `python scripts/export_front_pages.py signatures`
+%      (or `.\scripts\export_front_pages.ps1 signatures` in PowerShell).
+%  - To switch to the signed PDF version after defense (جایگزینی با نسخه امضاشده):
+%      1. Save the signed PDF to `frontmatter/signatures.pdf`.
+%      2. In `thesis.tex`, comment `\include{frontmatter/signatures}` and
+%         uncomment `\includepdfpages{frontmatter/signatures.pdf}`.
+%      (Alternative: Uncomment the quick-switch line below inside this file).
+% ==============================================================================
+
+% Optional Quick-Switch: Uncomment the line below to include the signed PDF directly:
+% \includepdfpages{frontmatter/signatures.pdf}\endinput
+
+\begin{large}
+\setlength{\parindent}{0pt}
+\begin{center}
+{\large\bfseries تصویب‌نامه}\\
+\vspace{1.25em}
+
+{\normalsize\ThesisUniversity}\\[-0.15cm]
+{\small\ThesisDepartment}
+
+\vspace{1em}
+\textbf{\large \ThesisType{} \ \ThesisDegree}\\
+{\small این \ThesisType\ به عنوان تحقق بخشی از شرایط دریافت درجه \ThesisDegree\ است.}
+\end{center}
+
+\vspace{0.5em}
+
+{\normalsize \textbf{عنوان}: \ifthesisfieldTF{\ThesisSignTitle}{\ThesisSignTitle}{\ThesisTitle}}
+
+\vspace{0.5em}
+
+{\normalsize \textbf{نگارش}: \ThesisAuthor}
+
+\vspace{2.5em}
+
+% Macro for table rows with signature lines
+\newcommand{\signaturerow}[2]{%
+  {\normalsize \textbf{#1:}} & \vspace{.5em} \\
+  \hspace*{4em}{\normalsize #2} & {\normalsize \textbf{امضاء:}} \vspace{2em}\\
+}
+
+\noindent
+\begin{tabular}{@{}p{10cm}r@{}}
+\signaturerow{استاد راهنما}{\ThesisSupervisor}
+\ifthesisfield{\ThesisAdvisor}{\signaturerow{استاد مشاور}{\ThesisAdvisor}}
+\ifthesisfield{\ThesisSecondAdvisor}{\signaturerow{استاد مشاور}{\ThesisSecondAdvisor}}
+\ifthesisfield{\ThesisExaminer}{%
+  \signaturerow{\ifthesisfieldTF{\ThesisSecondExaminer}{استاد ممتحن داخلی}{استاد ممتحن}}{\ThesisExaminer}%
+}
+\ifthesisfield{\ThesisSecondExaminer}{%
+  \signaturerow{استاد ممتحن خارجی}{\ThesisSecondExaminer}%
+}
+\ifthesisfield{\ThesisThirdExaminer}{%
+  \signaturerow{استاد ممتحن}{\ThesisThirdExaminer}%
+}
+\rule{0pt}{3.5em} & {\normalsize \textbf{تاریخ:}}\;\; {\normalsize\ifthesisfieldTF{\ThesisSignDate}{\ThesisSignDate}{\ThesisDate}}
+\end{tabular}
+
+\end{large}

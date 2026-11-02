@@ -1,0 +1,174 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  USER CUSTOMIZATION & CONFIGURATION LAYER (styles/custom.tex)
+% ==============================================================================
+%
+%  WELCOME TO THE USER CUSTOMIZATION FILE!
+%  This is the designated place for all your personal macros, custom packages,
+%  math operators, visual environments, and layout overrides.
+%
+% ------------------------------------------------------------------------------
+%  ARCHITECTURE & SEPARATION OF CONCERNS:
+% ------------------------------------------------------------------------------
+%  - styles/common.tex (Core Engine):
+%      Houses the core packages, geometry, fonts, footnote engines, theorem
+%      environments, and bidirectional layout machinery. DO NOT MODIFY common.tex
+%      directly, so that template updates can be applied cleanly.
+%
+%  - styles/custom.tex (User Space - THIS FILE):
+%      Houses your specific project settings, custom commands, theorem tweaks,
+%      colors, and optional layout overrides. Edit this file freely.
+%
+% ------------------------------------------------------------------------------
+%  GUIDE: WHAT YOU CAN CONFIGURE IN THIS FILE:
+% ------------------------------------------------------------------------------
+%  1. Math Operators & Notation:
+%     Define custom operators using \newcommand or \DeclareMathOperator.
+%     Always wrap LaTeX math in \ensuremath{...} or \operatorname{...} for safety.
+%
+%  2. Visual Elements & Highlight Boxes:
+%     Create or modify tcolorbox environments (e.g., the sleek 'academicbox' below)
+%     for callouts, case studies, or theorem highlights.
+%
+%  3. Title Page Spacing & Elastic Springs:
+%     The frontmatter uses elastic vertical glue (springs with fill weights).
+%     You can easily adjust the spacing above or below any element (author,
+%     title, supervisor, logo scale) using the commented length overrides below.
+%
+%  4. Adding Extra Packages:
+%     If you need extra packages (e.g., tikz, pgfplots, listings, minted):
+%     Add them in Section 4 of this file. Note: Packages modifying bidirectional
+%     text, fonts, or footnotes should be loaded with care to avoid conflicts
+%     with XePersian.
+% ==============================================================================
+
+
+% ==============================================================================
+% 1. PROJECT MATHEMATICAL OPERATORS & MACROS
+% ==============================================================================
+% Define your research-specific mathematical notations here.
+% Using \ensuremath ensures the macro works cleanly in both text and math modes.
+
+\newcommand{\OPT}{\ensuremath{\mathop{\mathrm{OPT}}}}
+\newcommand{\APX}{\ensuremath{\mathop{\mathrm{APX}}}}
+\newcommand{\ALG}{\ensuremath{\mathop{\mathrm{ALG}}}}
+
+% Examples of additional operators you might add:
+% \newcommand{\argmax}{\mathop{\mathrm{arg\,max}}}
+% \newcommand{\argmin}{\mathop{\mathrm{arg\,min}}}
+% \newcommand{\Expect}{\ensuremath{\mathbb{E}}}
+% \newcommand{\Var}{\ensuremath{\mathrm{Var}}}
+% \newcommand{\Loss}{\ensuremath{\mathcal{L}}}
+
+
+% ==============================================================================
+% 2. CUSTOM BOXES & VISUAL CALLOUT ENVIRONMENTS
+% ==============================================================================
+% Below is a formal, grayscale academic box (built with tcolorbox) ideal for
+% summaries, problem statements, hypotheses, or key takeaways.
+
+\newtcolorbox{academicboxenv}[2][]{%
+    enhanced,
+    breakable,
+    colback=black!1.5!white,
+    colframe=black!75,
+    coltitle=white,
+    fonttitle=\bfseries\footnotesize,
+    title={#2},
+    attach boxed title to top center={yshift*=-\tcboxedtitleheight/2},
+    boxed title style={
+        enhanced,
+        colback=black!90,
+        colframe=black!90,
+        arc=2mm,
+        boxrule=0pt,
+        left=14pt,
+        right=14pt,
+        top=4pt,
+        bottom=3pt
+    },
+    boxrule=0.8pt,
+    borderline={0.3pt}{2pt}{black!20},
+    left=16pt,
+    right=16pt,
+    top=11pt,
+    bottom=13pt,
+    before skip=18pt,
+    after skip=18pt,
+    #1
+}
+
+% Usage: \academicbox{Box Title}{Box Content}
+\newcommand{\academicbox}[3][]{%
+\begin{academicboxenv}[#1]{#2}
+#3
+\end{academicboxenv}%
+}
+
+
+% ==============================================================================
+% 3. OPTIONAL SPACING & LAYOUT OVERRIDES
+% ==============================================================================
+% Default layout dimensions are established in styles/common.tex.
+% If your university department requires slightly different margins or spacings,
+% uncomment and adjust the relevant lines below:
+%
+% ------------------------------------------------------------------------------
+% A. Persian & English Title Page Elastic Spacing (Spring Weights)
+% ------------------------------------------------------------------------------
+% The title page uses TeX 'fill' glues that automatically expand to balance
+% the vertical content on an A4 page. Adjust the weights to shift elements up/down:
+%
+% \setlength{\thesistitlebeforedept}{0.1cm}                  % Space before department (FA)
+% \setlength{\thesistitleenbeforedept}{0.2cm}                % Space before department (EN)
+% \setlength{\thesistitlebeforedatatype}{0pt plus 1.5fill}    % Spring weight before degree/type
+% \setlength{\thesistitlebeforetitle}{0pt plus 2.0fill}       % Spring weight before title
+% \setlength{\thesistitlebeforeauthor}{0pt plus 2.2fill}      % Spring weight before author
+% \setlength{\thesistitlebeforesupervisor}{0pt plus 1.0fill}  % Spring weight before supervisor
+% \setlength{\thesistitleenbeforesupervisor}{0pt plus 1.0fill}% Spring weight before EN supervisor
+% \setlength{\thesistitlebeforeadvisor}{0pt plus 0.8fill}     % Spring weight before advisor
+% \setlength{\thesistitleenbeforeadvisor}{0pt plus 0.8fill}   % Spring weight before EN advisor
+% \setlength{\thesistitlebeforeexaminer}{0pt plus 0.8fill}    % Spring weight before examiner
+% \setlength{\thesistitleenbeforeexaminer}{0pt plus 0.8fill}  % Spring weight before EN examiner
+% \setlength{\thesistitlebeforedate}{0pt plus 1.8fill}        % Spring weight before date
+% \setlength{\thesistitleenbeforedate}{0pt plus 1.8fill}      % Spring weight before EN date
+%
+% --- University Logo Scale ---
+% Adjust the size of the university logo on both Persian and English title pages:
+% \renewcommand{\ThesisLogoScale}{0.25}                      % Default scale factor is 0.25
+%
+% ------------------------------------------------------------------------------
+% B. Abstract & Frontmatter Typography
+% ------------------------------------------------------------------------------
+% Adjust vertical gaps or line-spread for abstract and acknowledgment pages:
+% \setlength{\thesisabstractbeforespace}{0cm}                % Gap below Persian abstract title
+% \setlength{\thesisabstractenbeforespace}{0.25cm}           % Gap below English abstract title
+% \renewcommand{\thesisabstractenstretch}{0.73}              % English abstract line height ratio
+% \setlength{\thesisackbeforespace}{1cm}                     % Gap below Acknowledgments title
+%
+% ------------------------------------------------------------------------------
+% C. Footnote Spacing
+% ------------------------------------------------------------------------------
+% Gap between the bottom of the main text and the two-column footnotes:
+% \setlength{\skip\footins}{1cm}                             % Default is 1cm
+
+% ------------------------------------------------------------------------------
+% D. Global Table Rules & Line Thickness
+% ------------------------------------------------------------------------------
+% Standardize table rule thickness across all tables to 0.5pt:
+\setlength{\heavyrulewidth}{0.5pt}   % Default width for \toprule and \bottomrule
+\setlength{\lightrulewidth}{0.5pt}   % Default width for \midrule
+\setlength{\arrayrulewidth}{0.5pt}   % Default width for \vline, \hline, \hhline, and |
+
+
+% ==============================================================================
+% 4. ADDITIONAL USER PACKAGES (OPTIONAL)
+% ==============================================================================
+% If your research requires specialized packages (e.g., TikZ, listings, pgfplots),
+% load them here:
+%
+% \usepackage{tikz}
+% \usetikzlibrary{shapes,arrows,positioning}
+% \usepackage{listings}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}

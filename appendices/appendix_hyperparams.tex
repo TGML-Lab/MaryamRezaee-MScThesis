@@ -1,0 +1,133 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  APPENDIX: TRAINING HYPERPARAMETERS & ARCHITECTURE (appendices/appendix_hyperparams.tex)
+% ==============================================================================
+%  This appendix documents the exact hyperparameters, optimizer configurations,
+%  and architectural specifications used for training the surrogate EBM and
+%  lightweight interpreter networks.
+% ==============================================================================
+
+\section{جزئیات ابرپارامترهای آموزش}\label{app:appendix_hyperparams}
+
+در این پیوست، مقادیر دقیق ابرپارامترهای استفاده‌شده برای آموزش شبکه‌های انرژی جانشین (\lr{EBM}) و شبکه‌ی مفسر در چهارچوب \lr{ESCI} ارائه شده است. این تنظیمات حاصل آزمایش‌های تجربی متعدد برای ایجاد تعادل میان پایداری آموزش، جلوگیری از بیش‌برازش و حفظ کارایی محاسباتی بر روی سخت‌افزارهای اقتصادی (نظیر پردازنده‌های گرافیکی \lr{NVIDIA T4}) می‌باشند. 
+
+ساختار معماری و تنظیمات بهینه‌سازی شبکه‌ی جانشین مبتنی بر انرژی در جدول~\ref{tab:app_ebm_hyperparams} خلاصه شده است. در این تنظیمات، استفاده از ۸ لایه‌ی توجه متقاطع و نرخ رهاسازی\enfootnote{dropout} ۱۰ درصد برای جلوگیری از اتکای بیش از حد شبکه به الگوهای نویزی، نقش بسزایی داشته است. همچنین، پس از انجماد مدل انرژی، شبکه‌ی مفسر با پیکربندی شرح‌داده‌شده در جدول~\ref{tab:app_interpreter_hyperparams} آموزش می‌بیند.
+
+\begin{table}[!ht]
+    \centering
+    \small
+    \caption{جزئیات ساختاری و ابرپارامترهای آموزش شبکه‌های جانشین و مفسر}
+    \vspace{0.04cm}
+    \subtabletopcaptrue % chktex 1
+    \renewcommand*{\subcapsize}{\footnotesize}
+    \renewcommand*{\subcaplabelfont}{\bfseries}
+    \renewcommand*{\subcapfont}{\bfseries}
+
+    \subtable[شبکه‌ی انرژی جانشین\label{tab:app_ebm_hyperparams}]{%
+        \resizebox{0.5\textwidth}{!}{%
+            \renewcommand{\arraystretch}{1}%
+            \setlength{\tabcolsep}{3pt}%
+            \setlength{\aboverulesep}{0pt}
+            \setlength{\belowrulesep}{0pt}
+
+            \begin{tabular}{lc}
+                \toprule
+                \rowcolor{gray!15} \textbf{پارامتر} & \textbf{مقدار} \\
+                \midrule
+                \multicolumn{2}{c}{\raisebox{0.06cm}[0pt][0pt]{\textbf{\textit{پیکربندی معماری}}}} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                مدل پایه‌ی تعبیه‌ساز & \lr{\texttt{all-mpnet-base-v2} (SentenceBERT)} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                نوع پدینگ & قابل یادگیری با مقداردهی تصادفی \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                طول بیشینه‌ی جملات ($N_{\text{\lr{max}}}$) & ۲۰ (برای \lr{HC3}) / ۲۴ (برای \lr{WikiBio}) \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                بُعد فضای پنهان ($d_{\text{\lr{model}}}$) & $768$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد لایه‌های خودتوجهی & $2$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد لایه‌های توجه متقاطع & $8$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد سرهای مکانیزم توجه & $8$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تابع فعال‌سازی & \lr{GELU} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                نرخ رهاسازی & $0.1$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد لایه‌های پیش‌خور سر انرژی & $2$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                ضریب انبساط پنهان در پیش‌خور & $2$ \\
+                \arrayrulecolor{black}\midrule
+                \multicolumn{2}{c}{\raisebox{0.06cm}[0pt][0pt]{\textbf{\textit{پیکربندی بهینه‌سازی و تابع زیان}}}} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                اندازه‌ی بچ & $16$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد ایپاک‌ها & $50$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                نرخ یادگیری (\lr{LR}) & $3 \times 10^{-5}$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                زمان‌بند نرخ یادگیری & خطی با ۲۰۰ گام گرم‌کردن \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                وزن وابستگی محلی در زیان کل ($\lambda$) & $0.9$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                دمای \lr{InfoNCE} ($\tau$) & $0.1$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                حاشیه‌ی امن انرژی & $0.5$ \\
+                \arrayrulecolor{black}\bottomrule
+            \end{tabular}%
+        }%
+    }%
+    \hfill
+    \subtable[شبکه‌ی مفسر\label{tab:app_interpreter_hyperparams}]{%
+        \resizebox{0.47\textwidth}{!}{%
+            \renewcommand{\arraystretch}{1.05}%
+            \setlength{\tabcolsep}{3pt}%
+            \setlength{\aboverulesep}{0pt}
+            \setlength{\belowrulesep}{0pt}
+
+            \begin{tabular}{lc}
+                \toprule
+                \rowcolor{gray!15} \vspace{-0.1cm} \raisebox{0.08cm}[0pt][0pt]{\textbf{پارامتر}} & \raisebox{0.08cm}[0pt][0pt]{\textbf{مقدار}} \\
+                \midrule
+                \multicolumn{2}{>{\columncolor{white}}c}{\raisebox{0.06cm}[0pt][0pt]{\textbf{\textit{پیکربندی معماری و استخراج}}}} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                استراتژی تصویرساز فضای مفهومی & کپی‌شده از \lr{EBM} و آزاد برای آموزش \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                بُعد خروجی پیش‌خور نهایی (\lr{MLP}) & $256$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                روش نرمال‌سازی امتیازات خام & \lr{Sigmoid} (توزیع مستقل برنولی) \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                روش اعمال ماسک نرم & ضرب درایه‌به‌درایه \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                منظم‌سازی پراکندگی & فعال (جریمه‌ی $0.005$ برای نرم $L_1$) \vspace{0.15cm} \\
+                \arrayrulecolor{black}\midrule
+                \multicolumn{2}{c}{\raisebox{0.06cm}[0pt][0pt]{\textbf{\textit{پیکربندی بهینه‌سازی}}}} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد ایپاک‌ها & $15$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                اندازه‌ی بچ & $16$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                نرخ یادگیری (\lr{LR}) & $1 \times 10^{-5}$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                حاشیه‌ی انرژی & $1.0$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                دمای \lr{InfoNCE} & $0.1$ \vspace{0.1cm} \\
+                \arrayrulecolor{black}\midrule
+                \multicolumn{2}{c}{\textbf{\textit{پیکربندی آموزش مشترک}}\vspace{0.02cm}} \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تنظیم ظریف \lr{EBM} & فعال \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                زمان‌بندی تنظیم ظریف & یک‌بار در هر  $5$ ایپاک \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                تعداد گام‌های تنظیم ظریف & $5$ گام در هر بار استعلام \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                نرخ یادگیری تنظیم ظریف \lr{EBM} & $5 \times 10^{-6}$ \\
+                \arrayrulecolor{gray!20}\midrule[0.1pt]
+                حاشیه‌ی انرژی تنظیم ظریف & $0.5$ \vspace{0.15cm} \\
+                \arrayrulecolor{black}\bottomrule
+            \end{tabular}%
+        }%
+    }
+\end{table}
+
+در مجموع، فرآیند آموزش هر دو فاز به ۳۰ ساعت زمان نیاز داشت. این فرآیند به‌طور کامل بر روی پلتفرم رایگان کگل (\lr{Kaggle}) و با بهره‌گیری از پردازنده‌ی گرافیکی \lr{NVIDIA T4 $\times 2$} اجرا گردید.

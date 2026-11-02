@@ -1,0 +1,149 @@
+# ==============================================================================
+# .gitignore - Git Ignore Rules for LaTeX Thesis Template (SUT)
+# ==============================================================================
+# This file specifies intentionally untracked files that Git should ignore.
+# It protects the repository from build artifacts, temporary cache files,
+# OS-specific files, and editor caches, while ensuring that all essential
+# source files, fonts, and figures needed for compilation are tracked.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. LaTeX Auxiliary & Compilation Artifacts
+# ------------------------------------------------------------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.gaux
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.loa
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc*
+*.nav
+*.out
+*.pag
+*.run.xml
+*.snm
+*.soc
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.tcx
+*.tdo
+*.toc
+*.tps
+*.upb
+*.upg
+*.vrb
+*.w18
+*.xdv
+*-blx.bib
+
+# LaTeX backup files
+*.bak
+*.sav
+*.old
+*~
+*.swp
+
+# TeX Engine temporary files
+texput.log
+missfont.log
+
+# ------------------------------------------------------------------------------
+# 2. Target Compilation Output PDFs (Root Level Only)
+# ------------------------------------------------------------------------------
+# We ignore root-level output PDFs so you don't commit compiled artifacts,
+# while preserving all figures and images in figures/ and frontmatter/images/.
+# /thesis.pdf
+/frontmatter/signatures.pdf
+/frontmatter/declaration.pdf
+/frontmatter/besmellah.pdf
+/frontmatter/title.pdf
+/frontmatter/title_en.pdf
+/frontmatter/wrapper.pdf
+/signatures.pdf
+/declaration.pdf
+/besmellah.pdf
+/title.pdf
+/title_en.pdf
+/wrapper.pdf
+
+# ------------------------------------------------------------------------------
+# 3. Python Cache & Build Artifacts (scripts/)
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+.pytest_cache/
+
+# ------------------------------------------------------------------------------
+# 4. Operating System Helper Files
+# ------------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.directory
+
+# ------------------------------------------------------------------------------
+# 5. Editor & IDE Settings (VS Code, TeXstudio, etc.)
+# ------------------------------------------------------------------------------
+# We keep .vscode/settings.json tracked for project compilation recipes,
+# but ignore internal VS Code workspace caches and user-specific states:
+.vscode/*
+!.vscode/settings.json
+.history/
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+# ------------------------------------------------------------------------------
+# 6. Local Research Paper PDFs (Literature Library)
+# ------------------------------------------------------------------------------
+# The folder bibliography/pdfs/ contains local downloaded reference papers
+# (often several hundred megabytes). We exclude it from git tracking so your
+# repository remains lightweight and within GitHub push limits.
+bibliography/pdfs/
+
+# ------------------------------------------------------------------------------
+# 7. Safety Whitelist (Do NOT Ignore Essential Project Assets)
+# ------------------------------------------------------------------------------
+# Ensure vector graphics, logo, fonts, and pre-compiled dictionaries are tracked
+!figures/*.pdf
+!figures/*.png
+!figures/*.jpg
+!figures/*.jpeg
+!frontmatter/images/*.pdf
+!frontmatter/images/*.png
+!frontmatter/images/*.jpg
+!styles/fonts/*.ttf
+!styles/fonts/*.otf
+!backmatter/dict_fa2en_content.tex
+!backmatter/dict_en2fa_content.tex

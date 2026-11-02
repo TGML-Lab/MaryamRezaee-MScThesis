@@ -1,0 +1,102 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  ACADEMIC INTEGRITY DECLARATION PAGE (frontmatter/declaration.tex)
+% ==============================================================================
+%
+%  This file formats the official Academic Integrity & Authenticity Declaration
+%  (صفحه اظهارنامه اصالت متن و مالکیت معنوی دانشگاه صنعتی شریف).
+%
+% ------------------------------------------------------------------------------
+%  HOW IT WORKS:
+% ------------------------------------------------------------------------------
+%  - Metadata is automatically populated from `frontmatter/info.tex`:
+%      * Title: Uses \ThesisSignTitle (or fallback \ThesisTitle)
+%      * Author: \ThesisAuthor
+%      * Supervisor: \ThesisSupervisor
+%      * Advisor(s): \ThesisAdvisor, \ThesisSecondAdvisor
+%      * Date: \ThesisSignDate (or fallback \ThesisDate)
+%  - To toggle this page in the thesis:
+%      Toggle `\include{frontmatter/declaration}` in `thesis.tex`.
+%  - To export as a standalone single-page PDF for submission:
+%      Run `python scripts/export_front_pages.py declaration`
+%      (or `.\scripts\export_front_pages.ps1 declaration` in PowerShell).
+%  - To switch to the signed PDF version after defense (جایگزینی با نسخه امضاشده):
+%      1. Save the signed PDF to `frontmatter/declaration.pdf`.
+%      2. In `thesis.tex`, comment `\include{frontmatter/declaration}` and
+%         uncomment `\includepdfpages{frontmatter/declaration.pdf}`.
+%      (Alternative: Uncomment the quick-switch line below inside this file).
+% ==============================================================================
+
+% Optional Quick-Switch: Uncomment the line below to include the signed PDF directly:
+% \includepdfpages{frontmatter/declaration.pdf}\endinput
+
+{\parindent0pt
+
+\begin{center}
+{\large\bfseries اظهارنامه}
+
+{\small(اصالت متن و محتوای \ThesisType{} \ThesisDegree)}
+\end{center}
+\vspace{-6em}
+\includegraphics[scale=0.18]{frontmatter/images/logo}
+\vspace{3em}
+
+\textbf{عنوان ‌\ThesisType}: \ifthesisfieldTF{\ThesisSignTitle}{\ThesisSignTitle}{\ThesisTitle}
+
+\vspace{.2em}
+\ifthesisadvisors{%
+  \noindent
+  \begin{minipage}[t]{0.48\textwidth}
+    \textbf{استاد راهنما}: \ThesisSupervisor{}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.48\textwidth}
+    \textbf{استاد مشاور}: \ThesisAdvisor{}
+    \ifthesisfield{\ThesisSecondAdvisor}{\\ \textbf{استاد مشاور}: \ThesisSecondAdvisor}
+  \end{minipage}
+}{%
+  \noindent\textbf{استاد راهنما}: \ThesisSupervisor{}
+}
+
+\vspace{0.5em}
+\small
+این‌جانب {\ThesisAuthor} اظهار می‌دارم:
+\begin{enumerate}
+  \item متن و نتایج علمی ارائه شده در این {\ThesisType} اصیل بوده و زیرنظر استادان نام‌برده ‌شده در بالا تهیه شده است.\vspace{-0.15cm}
+  \item متن {\ThesisType} به این صورت در هیچ جای دیگری منتشر نشده است.\vspace{-0.15cm}
+  \item متن و نتایج مندرج در این {\ThesisType}، حاصل تحقیقات این‌جانب به عنوان دانشجوی {\ThesisDegree} دانشگاه صنعتی شریف است.\vspace{-0.15cm}
+  \item کلیه مطالبی که از منابع دیگر در این {\ThesisType} مورد استفاده قرار گرفته، با ذکر مرجع مشخص شده است.
+\end{enumerate}
+
+% Macro for signature block
+\newcommand{\declarationsignblock}[2]{%
+  \begin{tabular}{@{}r@{\hspace{1.5em}}r@{}}
+    \textbf{#1:} & #2 \\
+    \textbf{تاریخ:} & \ifthesisfieldTF{\ThesisSignDate}{\ThesisSignDate}{\ThesisDate} \\
+    \textbf{امضاء:} &
+  \end{tabular}%
+}
+
+% Author signature block under the 4 items
+\vspace{0.4em}
+\noindent\hspace*{\fill}%
+\begin{minipage}[t]{6.5cm}
+  \begin{flushright}
+    \declarationsignblock{نگارنده}{\ThesisAuthor}
+  \end{flushright}
+\end{minipage}
+
+\vspace{1.1cm}
+نتایج تحقیقات مندرج در این \ThesisType{} و دستاوردهای مادی و معنوی ناشی از آن (شامل فرمول‌ها، توابع کتابخانه‌ای، نرم‌افزارها، سخت‌افزارها و مواردی که قابلیت ثبت اختراع دارد) متعلق به دانشگاه صنعتی شریف است. هیچ شخصیت حقیقی یا حقوقی بدون کسب اجازه از دانشگاه صنعتی شریف حق فروش و ادعای مالکیت مادی یا معنوی بر آن یا ثبت اختراع از آن را ندارد. همچنین، کلیه حقوق مربوط به چاپ، تکثیر، نسخه‌برداری، ترجمه، اقتباس و نظائر آن در محیط‌های مختلف اعم از الکترونیکی، مجازی یا فیزیکی برای دانشگاه صنعتی شریف محفوظ است. نقل مطلب با ذکر ماخذ بلامانع است.
+
+\vspace{1.2em}
+\noindent
+\begin{minipage}[t]{6.5cm}
+  \declarationsignblock{استاد راهنما}{\ThesisSupervisor}
+\end{minipage}%
+\hspace{0.95em}%
+\begin{minipage}[t]{6.5cm}
+  \begin{flushleft}
+    \declarationsignblock{نگارنده}{\ThesisAuthor}
+  \end{flushleft}
+\end{minipage}
+}

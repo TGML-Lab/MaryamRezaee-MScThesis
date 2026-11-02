@@ -1,0 +1,188 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  THESIS METADATA & CONFIGURATION (frontmatter/info.tex)
+% ==============================================================================
+%
+%  WELCOME TO THE CENTRAL THESIS SETTINGS FILE!
+%  This file is the single source of truth for all institutional, personal,
+%  and academic metadata used throughout the thesis.
+%
+%  The values you define here are automatically propagated to:
+%    1. Persian Title Page          (frontmatter/title.tex)
+%    2. Committee Signatures Page   (frontmatter/signatures.tex / تصویب‌نامه)
+%    3. Integrity Declaration Page  (frontmatter/declaration.tex / اظهارنامه)
+%    4. English Title Page          (backmatter/title_en.tex)
+%
+% ------------------------------------------------------------------------------
+%  QUICK START & USAGE GUIDE:
+% ------------------------------------------------------------------------------
+%  1. Fill in your institutional details (University, Department, Degree, Major).
+%  2. Enter the Persian title in \ThesisTitle and English in \EnglishThesisTitle.
+%     - Use '\\' to create elegant line breaks in multi-line titles.
+%     - If your title on the signature or declaration page needs different line
+%       breaks, customize \ThesisSignTitle below.
+%  3. Enter the Author and Supervisor names.
+%  4. Optional Roles (Advisors & Examiners):
+%     - If you have an advisor, fill \ThesisAdvisor; otherwise leave it empty: {}.
+%     - For multiple advisors, fill \ThesisSecondAdvisor or uncomment custom titles.
+%     - For examiners, fill \ThesisExaminer (internal) and \ThesisSecondExaminer (external).
+%       Leave empty if not required or if defense committee is not yet set.
+%  5. Enter defense dates in Persian and English.
+%
+% ------------------------------------------------------------------------------
+%  AVAILABLE DEGREE & DOCUMENT OPTIONS (Examples):
+% ------------------------------------------------------------------------------
+%  - Degree Levels (\ThesisDegree / \EnglishThesisDegree):
+%      کارشناسی ارشد      /  M.Sc.
+%      دکتری تخصصی      /  Ph.D.
+%      کارشناسی        /  B.Sc.
+%
+%  - Document Types (\ThesisType / \EnglishThesisType):
+%      پایان‌نامه             /  Thesis       (For M.Sc. and B.Sc.)
+%      رساله             /  Dissertation (For Ph.D.)
+%      پروژه            /  Project      (For Undergraduate projects)
+% ==============================================================================
+
+
+% ==============================================================================
+% 1. PERSIAN METADATA (اطلاعات پایان‌نامه / رساله به زبان فارسی)
+% ==============================================================================
+
+% --- Academic Level & Institution (اطلاعات دانشگاه و مقطع تحصیلی) ---
+% Options: پایان‌نامه (M.Sc./B.Sc.) | رساله (Ph.D.) | پروژه (B.Sc.)
+\newcommand{\ThesisType}{پایان‌نامه} 
+
+% University name (نام دانشگاه)
+\newcommand{\ThesisUniversity}{دانشگاه صنعتی شریف}
+
+% Department name (نام دانشکده)
+\newcommand{\ThesisDepartment}{دانشکده علوم ریاضی}
+
+% Degree title (مقطع تحصیلی: کارشناسی ارشد / دکتری تخصصی / کارشناسی)
+\newcommand{\ThesisDegree}{کارشناسی ارشد}
+
+% Field / Major of study (رشته و گرایش تحصیلی)
+\newcommand{\ThesisMajor}{علوم کامپیوتر}
+
+
+% --- Thesis Title & Author (عنوان پایان‌نامه و نگارنده) ---
+% Note: Use '\\' or '\par' for line breaks to balance lines on the title page.
+\newcommand{\ThesisTitle}{تفسیرپذیری در مدل‌های مولد:\\ بررسی سازوکارهای تولید خروجی\\[0.15em] در مدل‌های زبانی بزرگ}
+
+% Author's full name (نام و نام خانوادگی دانشجو)
+\newcommand{\ThesisAuthor}{مریم رضائی}
+
+
+% --- Supervisor (استاد / اساتید راهنما) ---
+% Full name and academic title of your supervisor.
+\newcommand{\ThesisSupervisor}{دکتر سیده فاطمه سیدصالحی}
+
+
+% --- Advisor(s) (استاد / اساتید مشاور - اختیاری) ---
+% Leave empty {} if you do not have an advisor.
+\newcommand{\ThesisAdvisor}{}
+
+% Second advisor (if applicable - uncomment to activate):
+%\newcommand{\ThesisSecondAdvisor}{دکتر نام مشاور دوم}
+
+% Custom header override for advisors:
+% By default, the template automatically selects "استاد مشاور" (singular) or
+% "اساتید مشاور" (plural). Uncomment below only to force a custom label:
+%\newcommand{\ThesisAdvisorTitle}{اساتید مشاور}
+
+
+% --- Examination Committee / Examiners (داوران و اعضای کمیته ممتحنین - اختیاری) ---
+% Leave empty {} if examiners are not yet assigned or not needed on the title page.
+% First examiner (typically internal examiner / ممتحن داخلی)
+\newcommand{\ThesisExaminer}{دکتر جواد ابراهیمی}
+
+% Second examiner (typically external examiner / ممتحن خارجی)
+\newcommand{\ThesisSecondExaminer}{دکتر مصطفی توسلی‌پور}
+
+% Third examiner (for Ph.D. defenses or larger committees - uncomment if needed)
+%\newcommand{\ThesisThirdExaminer}{دکتر نام داور سوم}
+
+% Custom header override for examiners:
+% By default, the template automatically selects "استاد ممتحن" or "اساتید ممتحن".
+% Uncomment below only to force a custom label (e.g., هیئت داوران):
+%\newcommand{\ThesisExaminerTitle}{هیئت داوران}
+
+
+% --- Dates & Form Settings (تاریخ‌ها و تنظیمات فرم‌های اداری) ---
+% Defense month/year for Persian title page (e.g., شهریور ۱۴۰۵ or مرداد ۱۴۰۵)
+\newcommand{\ThesisDate}{14 مرداد 1405}
+
+% Signing date formatted for official forms (Signatures and Declaration pages).
+% If left empty, \ThesisDate will be used as a fallback.
+\newcommand{\ThesisSignDate}{05/08/1405}
+
+% Title override for official Signatures and Declaration pages:
+% The title page can have multi-line breaks, but official forms often look
+% better with fewer breaks or a single unbroken title. Customize here if needed:
+\newcommand{\ThesisSignTitle}{تفسیرپذیری در مدل‌های مولد:\\بررسی سازوکارهای تولید خروجی در مدل‌های زبانی بزرگ} 
+
+
+
+% ==============================================================================
+% 2. ENGLISH METADATA (اطلاعات پایان‌نامه به زبان انگلیسی)
+% ==============================================================================
+
+% --- Academic Level & Institution (English) ---
+% Options: Thesis (M.Sc./B.Sc.) | Dissertation (Ph.D.) | Project (B.Sc.)
+\newcommand{\EnglishThesisType}{Thesis}
+
+% University name
+\newcommand{\EnglishThesisUniversity}{Sharif University of Technology}
+
+% Department name
+\newcommand{\EnglishThesisDepartment}{Department of Mathematical Sciences}
+
+% Degree title (e.g., M.Sc., Ph.D., B.Sc.)
+\newcommand{\EnglishThesisDegree}{M.Sc.}
+
+% Field / Major of study
+\newcommand{\EnglishThesisMajor}{Computer Science}
+
+
+% --- Thesis Title & Author (English) ---
+% Note: Use '\\' for manual line breaks to produce a balanced English title.
+\newcommand{\EnglishThesisTitle}{Interpretability in Generative Models:\\ Investigating the Mechanisms Behind Output\par Generation in Large Language Models}
+
+% Author's full name in English
+\newcommand{\EnglishThesisAuthor}{Maryam Rezaee}
+
+
+% --- Supervisor(s) (English) ---
+% Supervisor title and full name
+\newcommand{\EnglishThesisSupervisor}{Dr.\ S. Fatemeh Seyyedsalehi}
+
+
+% --- Advisor(s) (English - Optional) ---
+% Leave empty {} if you have no advisor.
+\newcommand{\EnglishThesisAdvisor}{}
+
+% Second advisor (if applicable - uncomment to activate):
+%\newcommand{\EnglishThesisSecondAdvisor}{Dr.\ Second Advisor Name}
+
+% Custom header override (default: "Advisor" or "Advisors"):
+%\newcommand{\EnglishThesisAdvisorTitle}{Advisors}
+
+
+% --- Examination Committee (English - Optional) ---
+% Leave empty {} if not required on the English title page.
+% First examiner
+\newcommand{\EnglishThesisExaminer}{Dr.\ Javad Ebrahimi}
+
+% Second examiner
+\newcommand{\EnglishThesisSecondExaminer}{Dr.\ Mostafa Tavassolipour}
+
+% Third examiner (uncomment if applicable)
+%\newcommand{\EnglishThesisThirdExaminer}{Dr.\ Third Examiner Name}
+
+% Custom header override (default: "Examiner" or "Examiners"):
+%\newcommand{\EnglishThesisExaminerTitle}{Board of Examiners}
+
+
+% --- Date (English) ---
+% Date format for the English title page (e.g., August 2026 or 5 August 2026)
+\newcommand{\EnglishThesisDate}{5 August 2026}

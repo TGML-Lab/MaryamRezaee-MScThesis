@@ -1,0 +1,554 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  CORE TEMPLATE ENGINE & STYLING ARCHITECTURE (styles/common.tex)
+% ==============================================================================
+%
+%  DO NOT MODIFY THIS FILE DIRECTLY!
+%  This file contains the internal core engine of the thesis template:
+%    - Standard LaTeX packages and PDF 1.7 vector graphics configuration
+%    - Persian typography and XePersian bidirectional engine initialization
+%    - Font declarations (XB Niloofar, Adobe Caslon Pro, Sharif Font)
+%    - Base geometry, two-column footnote engines, and caption layouts
+%    - Frontmatter / backmatter structural environments
+%    - Dynamic advisor / examiner conditional evaluators
+%    - Automated dictionary / glossary formatting and layout macros
+%
+%  FOR USER CUSTOMIZATIONS, MACROS, AND SPACING OVERRIDES:
+%  Please edit `styles/custom.tex`.
+% ==============================================================================
+
+% chktex-file 1
+
+% -------------------- PDF Version --------------------
+\special{pdf:majorversion 1}
+\special{pdf:minorversion 7}
+
+% -------------------- Core Packages --------------------
+\PassOptionsToPackage{table}{xcolor}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{etoolbox}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{amssymb,amsmath}
+\usepackage[mathscr]{euscript}
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[dvipsnames]{pstricks}
+\usepackage{graphicx,subfigure,wrapfig}
+\usepackage{tabularx,booktabs,array}
+\renewcommand{\tabularxcolumn}[1]{m{#1}} % Force all 'X' columns in tabularx to vertically center contents
+\usepackage{makecell}
+\usepackage{soul}
+\usepackage{geometry}
+\usepackage{multicol,multirow}
+\usepackage{hhline}
+\usepackage[figureposition=bottom,tableposition=top,font={small,bf},labelfont=bf]{caption}
+
+% -------------------- Algorithms --------------------
+\usepackage{algorithmicx,algorithm}
+\usepackage[noend]{algpseudocode}
+
+\renewcommand{\algorithmicfor}{{به ازای}}
+\renewcommand{\algorithmicwhile}{{تا وقتی}}
+\renewcommand{\algorithmicdo}{\hspace{-.2em}:}
+\renewcommand{\algorithmicif}{{اگر}}
+\renewcommand{\algorithmicthen}{\hspace{-.2em}:}
+\renewcommand{\algorithmicelse}{{در غیر این صورت:}}
+\renewcommand{\algorithmicreturn}{{برگردان}}
+\renewcommand{\algorithmiccomment}[1]{\ensuremath{\triangleleft} \textit{#1}}
+\renewcommand{\algorithmicrequire}{\textbf{ورودی:}}
+\renewcommand{\algorithmicensure}{\textbf{خروجی:}}
+
+% -------------------- XePersian (Must be loaded last) --------------------
+\usepackage[extrafootnotefeatures]{xepersian}
+\twocolumnfootnotes 
+
+% -------------------- Page Layout --------------------
+\newgeometry{margin=1in,bottom=1.1in,footskip=.4in}
+
+\renewcommand{\baselinestretch}{1.4}
+\linespread{1.6}
+\setlength{\parskip}{0.45em}
+\setlength{\skip\footins}{1cm}
+
+% -------------------- Float Spacing (Tables & Figures in Text) --------------------
+% Note: These settings control floating tables and figures in the body text only.
+% They do NOT affect the Table of Contents, List of Tables, or List of Figures.
+\setlength{\textfloatsep}{26pt plus 4pt minus 2pt} % Distance between top/bottom float and text
+\setlength{\intextsep}{22pt plus 4pt minus 2pt}    % Distance above and below in-text [h] float
+\setlength{\floatsep}{20pt plus 3pt minus 2pt}     % Distance between two consecutive floats
+\captionsetup[table]{skip=8pt}                     % Distance between table caption and table body
+\captionsetup[figure]{skip=8pt}                    % Distance between figure graphic and caption
+
+\setcounter{secnumdepth}{3} % Tells LaTeX to number down to the subsubsection level
+\setcounter{tocdepth}{3}    % Tells LaTeX to include down to the subsubsection level in the ToC
+
+% -------------------- Thesis Metadata Conditionals & Helpers --------------------
+% Robust test to verify if a metadata macro exists and is non-empty (and not just whitespace)
+\newcommand{\ifthesisfieldTF}[3]{%
+  \ifdefined#1%
+    \ifx#1\relax
+      #3%
+    \else
+      \expandafter\ifblank\expandafter{#1}{#3}{#2}%
+    \fi
+  \else
+    #3%
+  \fi
+}
+\newcommand{\ifthesisfield}[2]{\ifthesisfieldTF{#1}{#2}{}}
+
+% Detect presence of advisors (single or multiple)
+\newcommand{\ifthesisadvisors}[1]{%
+  \ifthesisfieldTF{\ThesisAdvisor}{#1}{%
+    \ifthesisfieldTF{\ThesisAdvisors}{#1}{%
+      \ifthesisfieldTF{\ThesisSecondAdvisor}{#1}{}%
+    }%
+  }%
+}
+\newcommand{\ifenglishthesisadvisors}[1]{%
+  \ifthesisfieldTF{\EnglishThesisAdvisor}{#1}{%
+    \ifthesisfieldTF{\EnglishThesisAdvisors}{#1}{%
+      \ifthesisfieldTF{\EnglishThesisSecondAdvisor}{#1}{}%
+    }%
+  }%
+}
+
+% Detect presence of examiners (single or multiple)
+\newcommand{\ifthesisexaminers}[1]{%
+  \ifthesisfieldTF{\ThesisExaminer}{#1}{%
+    \ifthesisfieldTF{\ThesisExaminers}{#1}{%
+      \ifthesisfieldTF{\ThesisSecondExaminer}{#1}{}%
+    }%
+  }%
+}
+\newcommand{\ifenglishthesisexaminers}[1]{%
+  \ifthesisfieldTF{\EnglishThesisExaminer}{#1}{%
+    \ifthesisfieldTF{\EnglishThesisExaminers}{#1}{%
+      \ifthesisfieldTF{\EnglishThesisSecondExaminer}{#1}{}%
+    }%
+  }%
+}
+
+% Dynamic headers for examiners (singular vs plural, with custom override support)
+\newcommand{\ThesisExaminerHeader}{%
+  \ifthesisfieldTF{\ThesisExaminerTitle}{\ThesisExaminerTitle}{%
+    \ifthesisfieldTF{\ThesisSecondExaminer}{اساتید ممتحن}{%
+      \ifthesisfieldTF{\ThesisExaminers}{اساتید ممتحن}{استاد ممتحن}%
+    }%
+  }%
+}
+\newcommand{\EnglishThesisExaminerHeader}{%
+  \ifthesisfieldTF{\EnglishThesisExaminerTitle}{\EnglishThesisExaminerTitle}{%
+    \ifthesisfieldTF{\EnglishThesisSecondExaminer}{Examiners}{%
+      \ifthesisfieldTF{\EnglishThesisExaminers}{Examiners}{Examiner}%
+    }%
+  }%
+}
+
+% Dynamic headers for advisors (singular vs plural, with custom override support)
+\newcommand{\ThesisAdvisorHeader}{%
+  \ifthesisfieldTF{\ThesisAdvisorTitle}{\ThesisAdvisorTitle}{%
+    \ifthesisfieldTF{\ThesisSecondAdvisor}{اساتید مشاور}{%
+      \ifthesisfieldTF{\ThesisAdvisors}{اساتید مشاور}{استاد مشاور}%
+    }%
+  }%
+}
+\newcommand{\EnglishThesisAdvisorHeader}{%
+  \ifthesisfieldTF{\EnglishThesisAdvisorTitle}{\EnglishThesisAdvisorTitle}{%
+    \ifthesisfieldTF{\EnglishThesisSecondAdvisor}{Advisors}{%
+      \ifthesisfieldTF{\EnglishThesisAdvisors}{Advisors}{Advisor}%
+    }%
+  }%
+}
+
+% -------------------- Frontmatter & Backmatter Spacing Dimensions --------------------
+% Elastic vertical glues (springs) that auto-adapt to page contents and fill the page
+\newlength{\thesistitlebeforedept}
+\setlength{\thesistitlebeforedept}{0.1cm}
+
+\newlength{\thesistitleenbeforedept}
+\setlength{\thesistitleenbeforedept}{0.2cm}
+
+\newlength{\thesistitlebeforedatatype}
+\setlength{\thesistitlebeforedatatype}{0pt plus 1.5fill}
+
+\newlength{\thesistitlebeforetitle}
+\setlength{\thesistitlebeforetitle}{0pt plus 1.5fill}
+
+\newlength{\thesistitlebeforeauthor}
+\setlength{\thesistitlebeforeauthor}{0pt plus 2.2fill}
+
+\newlength{\thesistitlebeforesupervisor}
+\setlength{\thesistitlebeforesupervisor}{0pt plus 1.0fill}
+
+\newlength{\thesistitleenbeforesupervisor}
+\setlength{\thesistitleenbeforesupervisor}{0pt plus 1.0fill}
+
+\newlength{\thesistitlebeforeadvisor}
+\setlength{\thesistitlebeforeadvisor}{0pt plus 0.8fill}
+
+\newlength{\thesistitleenbeforeadvisor}
+\setlength{\thesistitleenbeforeadvisor}{0pt plus 0.8fill}
+
+\newlength{\thesistitlebeforeexaminer}
+\setlength{\thesistitlebeforeexaminer}{0pt plus 0.8fill}
+
+\newlength{\thesistitleenbeforeexaminer}
+\setlength{\thesistitleenbeforeexaminer}{0pt plus 0.8fill}
+
+\newlength{\thesistitlebeforedate}
+\setlength{\thesistitlebeforedate}{0pt plus 1.8fill}
+
+\newlength{\thesistitleenbeforedate}
+\setlength{\thesistitleenbeforedate}{0pt plus 1.8fill}
+
+\newcommand{\ThesisLogoScale}{0.25}
+
+\newlength{\thesisabstractbeforespace}
+\setlength{\thesisabstractbeforespace}{0cm}
+
+\newlength{\thesisabstractenbeforespace}
+\setlength{\thesisabstractenbeforespace}{0.25cm}
+
+\newcommand{\thesisabstractenstretch}{0.73}
+
+\newlength{\thesisackbeforespace}
+\setlength{\thesisackbeforespace}{1cm}
+
+% -------------------- Frontmatter & Backmatter Environments --------------------
+\newenvironment{persianabstract}{%
+  \begin{center}
+    {\Large\textbf{چکیده}}
+  \end{center}
+  \vspace{\thesisabstractbeforespace}
+  \noindent\ignorespaces 
+}{%
+  \par
+}
+
+\newcommand{\thesiskeywords}[1]{%
+  \bigskip\noindent\textbf{کلیدواژه‌ها}: 
+  \nopagebreak\noindent\textit{#1}%
+}
+
+\newenvironment{englishabstract}{%
+  \begin{latin}
+  \begin{center}
+    {\Large\textbf{A\scalebox{0.7}{BSTRACT}}}
+  \end{center}
+  \baselineskip=\thesisabstractenstretch\baselineskip 
+  \vspace{\thesisabstractenbeforespace}
+  \noindent\ignorespaces 
+}{%
+  \par
+  \end{latin}
+}
+
+\newcommand{\thesiskeywordsen}[1]{%
+  \bigskip\noindent\textbf{Keywords}:
+  \nopagebreak\noindent\textit{#1}%
+}
+
+\newenvironment{thesisacknowledgments}{%
+  \begin{center}
+    {\Large\textbf{سپاس}}
+  \end{center}
+  \vspace{\thesisackbeforespace}
+  \noindent\ignorespaces 
+}{%
+  \par
+}
+
+\sloppy
+
+% -------------------- Full-Page PDF Insertion Helpers --------------------
+% Robust helper macros for inserting full-page standalone/scanned PDFs
+% (such as signed defense committee approval and declaration forms).
+% Fully compatible with XeLaTeX, XePersian (bidirectional engine), and TikZ
+% without the shipout or undefined control sequence conflicts of `pdfpages`.
+\makeatletter
+\newcommand{\thesis@includepdf@single}[2]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=center, inner sep=0pt, outer sep=0pt] at (current page.center) {%
+      \includegraphics[page=#1, width=\paperwidth, height=\paperheight]{#2}%
+    };
+  \end{tikzpicture}%
+  \clearpage
+}
+
+% \includepdfpage[page_number]{filepath}: Inserts a specific single page (default: page 1)
+\newcommand{\includepdfpage}[2][1]{%
+  \IfFileExists{#2}{%
+    \thesis@includepdf@single{#1}{#2}%
+  }{%
+    \IfFileExists{#2.pdf}{%
+      \thesis@includepdf@single{#1}{#2.pdf}%
+    }{%
+      \PackageError{thesis}{PDF file '#2' (or '#2.pdf') not found}{Please check the file path.}%
+    }%
+  }%
+}
+
+% \includepdfpages{filepath}: Automatically detects page count and inserts ALL pages
+\newcount\thesis@pdfpage@idx
+\newcount\thesis@pdfpage@max
+\newcommand{\includepdfpages}[1]{%
+  \IfFileExists{#1}{%
+    \thesis@pdfpage@max=\XeTeXpdfpagecount "#1" \relax % chktex 18
+    \thesis@pdfpage@idx=1
+    \loop
+      \thesis@includepdf@single{\the\thesis@pdfpage@idx}{#1}%
+      \ifnum\thesis@pdfpage@idx<\thesis@pdfpage@max
+        \advance\thesis@pdfpage@idx by 1
+    \repeat
+  }{%
+    \IfFileExists{#1.pdf}{%
+      \thesis@pdfpage@max=\XeTeXpdfpagecount "#1.pdf" \relax % chktex 18
+      \thesis@pdfpage@idx=1
+      \loop
+        \thesis@includepdf@single{\the\thesis@pdfpage@idx}{#1.pdf}%
+        \ifnum\thesis@pdfpage@idx<\thesis@pdfpage@max
+          \advance\thesis@pdfpage@idx by 1
+      \repeat
+    }{%
+      \PackageError{thesis}{PDF file '#1' (or '#1.pdf') not found}{Please check the file path.}%
+    }%
+  }%
+}
+\makeatother
+
+% -------------------- Typography & Fonts --------------------
+\settextfont[
+	Scale=1.09,
+	Extension=.ttf, 
+	Path=styles/fonts/,
+	BoldFont=XB NiloofarBd,
+	ItalicFont=XB NiloofarIt,
+	BoldItalicFont=XB NiloofarBdIt
+]{XB Niloofar}
+
+\setdigitfont[
+	Scale=1.09,
+	Extension=.ttf, 
+	Path=styles/fonts/,
+	BoldFont=XB NiloofarBd,
+	ItalicFont=XB NiloofarIt,
+	BoldItalicFont=XB NiloofarBdIt
+]{XB Niloofar}
+
+\setlatintextfont[
+	Scale=1.09,
+	Extension=.ttf, 
+	Path=styles/fonts/,
+	BoldFont=Adobe Caslon Pro Bold,
+	ItalicFont=Adobe Caslon Pro Italic,
+	BoldItalicFont=Adobe Caslon Pro Bold Italic
+]{Adobe Caslon Pro Regular}
+
+% Silent font shape substitutions to prevent LaTeX Font Warnings
+\DeclareFontShape{TU}{lmtt}{bx}{n}{<->ssub * lmtt/b/n}{}
+\DeclareFontShape{TU}{lmtt}{bx}{sl}{<->ssub * lmtt/b/sl}{}
+\DeclareFontShape{TU}{lmtt}{bx}{it}{<->ssub * lmtt/b/it}{}
+\makeatletter
+\def\@font@warning#1{}
+\AtEndDocument{\let\@defaultsubs\relax}
+\makeatother
+
+\newcommand{\shariffont}{%
+\settextfont[
+	Scale=1.4,
+	Extension=.ttf, 
+	Path=styles/fonts/,
+	BoldFont=Sharif1.3-SemiBold
+]{Sharif1.3-Regular}%
+\setdigitfont[
+	Scale=1.4,
+	Extension=.ttf, 
+	Path=styles/fonts/,
+	BoldFont=Sharif1.3-SemiBold
+]{Sharif1.3-Regular}%
+}
+
+% -------------------- Spacing & Lists --------------------
+\SepMark{\,-\,}
+\renewcommand{\labelitemi}{{\small\ensuremath{\bullet}}}
+
+% Prevent reference numbers from breaking across lines in RTL (avoids dvipdfmx bann/eann link collision)
+\AtBeginDocument{
+  \let\origref\ref 
+  \renewcommand{\ref}[1]{\mbox{\origref{#1}}}
+}
+
+\makeatletter
+% \@dottedtocline{Level}{Indent}{Number Width}
+% Table of Contents numbering and alignment
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{3.0em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{4.5em}{4.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{8.7em}{5.4em}}
+
+% List of Figures and List of Tables: increased number box width to prevent squishing
+\renewcommand*\l@figure{\@dottedtocline{1}{1.5em}{3.2em}}
+\renewcommand*\l@table{\@dottedtocline{1}{1.5em}{3.2em}}
+\renewcommand*\l@subfigure{\@dottedtocline{2}{3.8em}{2.5em}}
+\makeatother
+
+% -------------------- Environments --------------------
+\newtheorem{theorem}{قضیه‌ی}[chapter]
+\newtheorem{lemma}[theorem]{لم}
+\newtheorem{claim}[theorem]{ادعای}
+\newtheorem{observation}[theorem]{مشاهده‌ی}
+\newtheorem{corollary}[theorem]{نتیجه‌ی}
+\newtheorem{problem}{مسئله‌ی}[chapter]
+\newtheorem{definition}{تعریف}[chapter]
+\newtheorem{example}{مثال}[chapter]
+
+\newenvironment{proofenv}
+	{\begin{trivlist}\item[\hspace{\labelsep}\textit{اثبات.}]}
+	{\leavevmode\unskip\nobreak\quad\hspace*{\fill}{\ensuremath{{\square}}}\end{trivlist}}
+
+\newenvironment{alg}[2]
+	{\begin{latin}\settextfont[Scale=1.0]{Times New Roman}
+	\begin{algorithm}[t]\caption{#1}\label{algo:#2}\vspace{0.2em}\begin{algorithmic}[1]}
+	{\end{algorithmic}\vspace{0.2em}\end{algorithm}\end{latin}}
+
+\newenvironment{persianalgorithm}[1]
+	{\bigskip\bigskip\begin{algorithm}\caption{#1}\label{algorithm: #1}\vspace{0.5em}\begin{algorithmic}[1]}
+	{\end{algorithmic}\vspace{0.5em}\end{algorithm}\bigskip}
+
+% -------------------- Titles --------------------
+\renewcommand{\listfigurename}{فهرست شکل‌ها}
+\renewcommand{\listtablename}{فهرست جدول‌ها}
+\renewcommand{\bibname}{\rl{مراجع\hfill}} 
+
+% -------------------- Math Commands --------------------
+\newcommand{\IN}{\ensuremath{\mathbb{N}}} 
+\newcommand{\IZ}{\ensuremath{\mathbb{Z}}} 
+\newcommand{\IQ}{\ensuremath{\mathbb{Q}}} 
+\newcommand{\IR}{\ensuremath{\mathbb{R}}} 
+\newcommand{\IC}{\ensuremath{\mathbb{C}}} 
+
+\newcommand{\set}[1]{\left\{ #1 \right\}} % chktex 21
+\newcommand{\seq}[1]{\left< #1 \right>}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\card}[1]{\left|{#1}\right|}
+\newcommand{\setcomp}[1]{\overline{#1}}
+\newcommand{\provided}{\,:\,}
+\newcommand{\divs}{\mid}
+\newcommand{\ndivs}{\nmid}
+\newcommand{\iequiv}[1]{\,\overset{#1}{\equiv}\,}
+\newcommand{\imod}[1]{\allowbreak\mkern5mu(#1\,\,\text{پیمانه‌ی})} % chktex 36 % chktex 21
+
+\newcommand{\poly}{\mathop{\mathrm{poly}}}
+\newcommand{\polylog}{\mathop{\mathrm{polylog}}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\lee}{\leqslant}
+\newcommand{\gee}{\geqslant}
+\renewcommand{\leq}{\lee}
+\renewcommand{\le}{\lee}
+\renewcommand{\geq}{\gee}
+\renewcommand{\ge}{\gee}
+
+\newcommand{\REM}[1]{}
+\newcommand{\important}[1]{\textbf{#1}}
+\newcommand{\codefa}[1]{\lr{\texttt{#1}}}
+\newcommand{\enfootnote}[1]{\LTRfootnote{#1}}
+
+% -------------------- Custom Colors & Highlighting --------------------
+\definecolor{lightgreen}{HTML}{CCFFCC}
+\definecolor{lightred}{HTML}{FFCCCC}
+
+\newcommand{\hlg}[1]{{\sethlcolor{lightgreen}\hl{#1}}}
+\newcommand{\hlr}[1]{{\sethlcolor{lightred}\hl{#1}}}
+
+% -------------------- Custom Table Macros --------------------
+\newcommand{\best}[1]{\textbf{#1}}
+\newcommand{\dimsc}[1]{\textcolor{gray}{#1}}
+\newcommand{\tgt}[1]{\colorbox{green!15}{\strut #1}} 
+
+% -------------------- Dictionary --------------------
+\newlength{\entryFaWidth}
+\newlength{\entryEnWidth}
+\newlength{\dicrequiredspace}
+
+% Prevent orphan alphabet headers at the bottom of columns
+\newcommand{\dicneedspace}[1]{%
+  \par
+  \begingroup
+  \setlength{\dicrequiredspace}{#1}%
+  \penalty 9999  
+  \vskip \dicrequiredspace  
+  \penalty 9999  
+  \vskip -\dicrequiredspace  
+  \endgroup
+}
+
+% --- fa2en (Persian to English) ---
+\newcommand{\dicalphabetFa}[1]{%
+  \dicneedspace{4.5\baselineskip}%
+  \par\vspace{0.6em}\noindent
+  \begin{minipage}{\columnwidth}
+    \centering\textbf{\normalsize #1}%
+    \vspace{.3em}%
+  \end{minipage}\par\nopagebreak[4]%
+}
+
+\newcommand{\dicFa}[2]{%
+  \settowidth{\entryFaWidth}{#2}%
+  \settowidth{\entryEnWidth}{\lr{#1}}%
+  \noindent
+  \ifdim\dimexpr\entryFaWidth+\entryEnWidth+0.2em\relax > \columnwidth 
+    #2\strut\dotfill\par\nopagebreak
+    \noindent\leavevmode\dotfill\lr{#1}\strut\par%
+  \else
+    #2 \dotfill \lr{#1}\par%
+  \fi
+}
+
+% --- en2fa (English to Persian) ---
+\newcommand{\dicalphabetEn}[1]{%
+  \dicneedspace{4.5\baselineskip}%
+  \par\vspace{0.6em}\noindent
+  \begin{minipage}{\columnwidth}
+    \centering\textbf{\normalsize \lr{#1}}%
+    \vspace{.3em}%
+  \end{minipage}\par\nopagebreak[4]%
+}
+
+\newcommand{\dicEn}[2]{%
+  \settowidth{\entryFaWidth}{#2}%
+  \settowidth{\entryEnWidth}{\lr{#1}}%
+  \noindent
+  \ifdim\dimexpr\entryFaWidth+\entryEnWidth+0.2em\relax > \columnwidth 
+    \strut\dotfill\lr{#1}\par\nopagebreak
+    \noindent\leavevmode#2\dotfill\strut\par%
+  \else
+    #2 \dotfill \lr{#1}\par%
+  \fi
+}
+
+% Defaults
+\newcommand{\dicalphabet}[1]{\dicalphabetFa{#1}}
+\newcommand{\dic}[2]{\dicFa{#1}{#2}}
+\newcommand{\dictentry}[2]{}
+
+\newcommand{\printdictionary}[1]{%
+  \def\tempdictarg{#1}%
+  \def\tempfaarg{fa2en}%
+  \ifx\tempdictarg\tempfaarg  
+    \let\dicalphabet\dicalphabetFa  
+    \let\dic\dicFa  
+  \else
+    \let\dicalphabet\dicalphabetEn  
+    \let\dic\dicEn  
+  \fi
+  \InputIfFileExists{backmatter/dict_#1_content.tex}{}{%
+    \PackageWarning{thesis}{Dictionary content for #1 not found. Please run scripts/build_dictionaries.py}%
+  }%
+}
+
+% -------------------- Graphics & Figures --------------------
+\graphicspath{{figures/}{frontmatter/images/}}

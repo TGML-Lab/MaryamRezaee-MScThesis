@@ -1,0 +1,74 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  PERSIAN TITLE PAGE (frontmatter/title.tex)
+% ==============================================================================
+%
+%  This file defines the layout and visual structure of the Persian title page.
+%
+% ------------------------------------------------------------------------------
+%  HOW IT WORKS:
+% ------------------------------------------------------------------------------
+%  - All textual values (University, Department, Title, Author, Supervisor,
+%    Advisors, Examiners, and Date) are populated dynamically from
+%    `frontmatter/info.tex`.
+%  - Spacing dimensions (\thesistitlebefore...) and the logo scale
+%    (\ThesisLogoScale) are elastic glues configured in `styles/common.tex`
+%    and can be customized in `styles/custom.tex`.
+%  - Advisor and Examiner blocks automatically adapt based on whether you
+%    have one, multiple, or no advisors/examiners.
+%  - DO NOT hardcode your personal information here; edit `frontmatter/info.tex`.
+% ==============================================================================
+
+\begin{center}
+
+% University Logo (scale factor is controlled by \ThesisLogoScale in styles/custom.tex)
+\includegraphics[scale=\ThesisLogoScale]{frontmatter/images/logo}
+
+% Institution & Department
+\vspace{\thesistitlebeforedept}
+{\large\ThesisUniversity} \\
+{\ThesisDepartment}
+
+% Degree & Field of Study
+\vspace{\thesistitlebeforedatatype}
+{\large\ThesisType\ \ThesisDegree} \\
+{\ThesisMajor}
+
+% Thesis Title
+\vspace{\thesistitlebeforetitle}
+{\LARGE\textbf{\ThesisTitle}}
+
+% Author Name
+\vspace{\thesistitlebeforeauthor}
+{نگارش\vspace{0.15cm}} \\
+{\large\textbf{\ThesisAuthor}\vspace{0.1cm}}
+
+% Supervisor
+\vspace{\thesistitlebeforesupervisor}
+{استاد راهنما\vspace{0.15cm}} \\
+{\large\textbf{\ThesisSupervisor}\vspace{0.1cm}}
+
+% Advisor(s) - Automatically rendered if defined in frontmatter/info.tex
+\ifthesisadvisors{%
+\vspace{\thesistitlebeforeadvisor}
+{\ThesisAdvisorHeader\vspace{0.15cm}} \\
+\ifthesisfield{\ThesisAdvisor}{{\large\textbf{\ThesisAdvisor}}\vspace{0.1cm}}%
+\ifthesisfield{\ThesisAdvisors}{{\large\textbf{\ThesisAdvisors}}\vspace{0.1cm}}%
+\ifthesisfield{\ThesisSecondAdvisor}{\\ {\large\textbf{\ThesisSecondAdvisor}}\vspace{0.1cm}}%
+}
+
+% Examination Committee - Automatically rendered if defined in frontmatter/info.tex
+\ifthesisexaminers{%
+\vspace{\thesistitlebeforeexaminer}
+{\ThesisExaminerHeader\vspace{0.15cm}} \\
+\ifthesisfield{\ThesisExaminer}{{\large\textbf{\ThesisExaminer}}\vspace{0.1cm}}%
+\ifthesisfield{\ThesisExaminers}{{\large\textbf{\ThesisExaminers}}\vspace{0.1cm}}%
+\ifthesisfield{\ThesisSecondExaminer}{\\ {\large\textbf{\ThesisSecondExaminer}}\vspace{0.1cm}}%
+\ifthesisfield{\ThesisThirdExaminer}{\\ {\large\textbf{\ThesisThirdExaminer}}\vspace{0.1cm}}%
+}
+
+% Defense Date
+\vspace{\thesistitlebeforedate}
+{\ThesisDate\vspace{-0.5cm}}
+
+\end{center}

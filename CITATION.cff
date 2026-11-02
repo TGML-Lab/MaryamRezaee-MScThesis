@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you find this research, methodology, or thesis codebase useful, please cite it as below."
+type: thesis
+thesis-type: "Master's Thesis"
+title: "Interpretability in Generative Models: Investigating the Mechanisms Behind Output Generation in Large Language Models"
+authors:
+  - family-names: Rezaee
+    given-names: Maryam
+    website: "https://maryamrezaee.me"
+    affiliation: "Sharif University of Technology"
+department: "Department of Mathematical Sciences"
+institution:
+  name: "Sharif University of Technology"
+  city: "Tehran"
+  country: "IR"
+date-published: 2026-08-05
+year: 2026
+month: 8
+url: "https://github.com/TGML-Lab/MaryamRezaee-MScThesis"
+repository-code: "https://github.com/TGML-Lab/MaryamRezaee-MScThesis"
+abstract: >-
+  The widespread deployment of Large Language Models via closed application
+  programming interfaces (APIs) in high-stakes domains has made interpretability
+  indispensable. This thesis introduces ESCI (Energy-Based Surrogate for
+  Concept-Level Interpretation), a post-hoc framework based on amortized
+  inference. ESCI elevates the unit of analysis from tokens to complete
+  sentences to prevent syntactic breakdown and out-of-distribution errors.
+  It trains an Energy-Based Model (EBM) as an unnormalized compatibility
+  surrogate, which guides a lightweight interpreter network to perform
+  sentence-level feature attribution in constant O(1) time without querying
+  the target black-box model at test time.
+keywords:
+  - "Black-box Large Language Models"
+  - "Post-hoc Interpretability"
+  - "Sentence-level Feature Attribution"
+  - "Energy-Based Models"
+  - "Amortized Inference"
+  - "Generative AI Auditing"

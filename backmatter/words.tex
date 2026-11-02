@@ -1,0 +1,1383 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  BIDIRECTIONAL THESIS GLOSSARY & DICTIONARY REPOSITORY (backmatter/words.tex)
+% ==============================================================================
+%
+%  WELCOME TO THE THESIS GLOSSARY FILE!
+%  This file is the SINGLE SOURCE OF TRUTH for all technical terms and
+%  translations used in the thesis.
+%
+% ------------------------------------------------------------------------------
+%  HOW TO ADD NEW TERMS (دستورالعمل افزودن واژگان):
+% ------------------------------------------------------------------------------
+%  Simply add term pairs anywhere in this file using the following syntax:
+%
+%      \dictentry{English Term}{معادل فارسی}
+%
+%  Examples:
+%      \dictentry{neural network}{شبکه‌ی عصبی}
+%      \dictentry{attention mechanism}{مکانیزم توجه}
+%      \dictentry{loss function}{تابع زیان}
+%
+% ------------------------------------------------------------------------------
+%  COMPILATION & AUTOMATIC SORTING PIPELINE:
+% ------------------------------------------------------------------------------
+%  1. You do NOT need to sort entries manually! Add them in any order.
+%  2. When compiling via `latexmk` or VS Code LaTeX Workshop:
+%     The build hook in `latexmkrc` automatically executes:
+%         python scripts/build_dictionaries.py
+%  3. If compiling manually via `xelatex`:
+%     Run `python scripts/build_dictionaries.py` in your terminal whenever
+%     you add or modify terms in this file.
+%  4. The python script automatically:
+%     - Generates `backmatter/dict_fa2en_content.tex` sorted by Persian alphabet.
+%     - Generates `backmatter/dict_en2fa_content.tex` sorted by English alphabet.
+%     - Handles special Persian characters (پ، چ، ژ، گ، آ) and ignores
+%       zero-width non-joiners (\u200c / نیم‌فاصله) for strictly correct collation.
+%     - Groups entries by letter headers (\dicalphabet{...}).
+%  5. DO NOT EDIT `dict_fa2en_content.tex` or `dict_en2fa_content.tex` directly,
+%     as they are automatically overwritten by the build script.
+% ==============================================================================
+
+% \dictentry{English Term}{Persian Translation}
+%  Automatic sorting & grouping is performed upon compilation.
+% -------------------------------------------------------
+
+
+\dictentry{ablation}{حذف}
+\dictentry{accuracy}{دقت}
+\dictentry{activation}{فعال‌سازی}
+\dictentry{activation function}{تابع فعال‌سازی}
+\dictentry{activation patching}{وصله‌زنی فعال‌سازی}
+\dictentry{AdamW}{بهینه‌ساز ادام‌دبلیو}
+\dictentry{additive update}{به‌روزرسانی افزایشی}
+\dictentry{adversarial}{متخاصم}
+\dictentry{adversarial attack}{حمله‌ی متخاصم}
+\dictentry{adversarial attacks}{حملات متخاصم}
+\dictentry{affine transformation}{تبدیل آفین}
+\dictentry{AIS}{انتساب‌پذیر به منابع مشخص}
+\dictentry{aligned}{هم‌تراز}
+\dictentry{aligned at the start}{هم‌تراز در مبدأ}
+\dictentry{alignment}{هم‌ترازی}
+\dictentry{allocation}{تخصیص}
+\dictentry{alternating local-global attention}{توجه متناوب محلی و سراسری}
+\dictentry{amortized}{سرشکن}
+\dictentry{amortized inference}{استنتاج مستهلک‌شده}
+\dictentry{annotation artifacts}{آرتیفکت‌های حاشیه‌نویسی}
+\dictentry{antecedent}{پیش‌آیند}
+\dictentry{antecedents}{پیش‌آیندها}
+\dictentry{AOPC}{سطح روی منحنی اختلال}
+\dictentry{API}{رابط برنامه‌نویسی}
+\dictentry{application}{کاربرد}
+\dictentry{application-grounded evaluation}{ارزیابی کاربردمحور}
+\dictentry{application programming interface}{رابط برنامه‌نویسی}
+\dictentry{approximation}{تقریب}
+\dictentry{architecture}{معماری}
+\dictentry{argument}{آرگومان}
+\dictentry{artifact impact ratio}{نسبت تأثیر آرتیفکت}
+\dictentry{artificial intelligence}{هوش مصنوعی}
+\dictentry{artificial neural network}{شبکه‌ی عصبی مصنوعی}
+\dictentry{attention}{توجه}
+\dictentry{attention flow}{جریان توجه}
+\dictentry{attention masking}{ماسک‌گذاری توجه}
+\dictentry{attention mechanism}{مکانیزم توجه}
+\dictentry{attention pooling}{تجمیع مبتنی بر توجه}
+\dictentry{attention rollout}{بسط توجه}
+\dictentry{attention score}{امتیاز توجه}
+\dictentry{attention weights}{وزن‌های توجه}
+\dictentry{Attributable to Identified Sources}{انتساب‌پذیر به منابع مشخص}
+\dictentry{attribution}{انتساب}
+\dictentry{attribution patching}{وصله‌زنی انتسابی}
+\dictentry{augmented views}{دیدگاه‌های افزوده}
+\dictentry{autoencoder}{خودرمزگذار}
+\dictentry{automated prompt optimization}{بهینه‌سازی خودکار پرامپت}
+\dictentry{autoregressive}{خودهمبسته}
+\dictentry{autoregressive attention}{توجه خودهمبسته}
+\dictentry{autoregressive model}{مدل خودهمبسته}
+\dictentry{autoregressive structured prediction}{پیش‌بینی ساختاریافته‌ی خودهمبسته}
+\dictentry{backpropagation}{پس‌انتشار}
+\dictentry{backward pass}{پس‌رو}
+\dictentry{baseline}{خط‌پایه}
+\dictentry{batch}{دسته}
+\dictentry{batch size}{اندازه‌ی دسته}
+\dictentry{beam search}{جستجوی پرتو}
+\dictentry{benchmark}{محک}
+\dictentry{benchmark dataset}{مجموعه‌داده‌ی محک}
+\dictentry{Bernoulli distribution}{توزیع برنولی}
+\dictentry{BERTScore}{معیار برت‌اسکور}
+\dictentry{bias}{سوگیری}
+\dictentry{bidirectional}{دوسویه}
+\dictentry{bidirectional self-attention}{خودتوجهی دوسویه}
+\dictentry{binary}{دودویی}
+\dictentry{binary hypercube}{ابرمکعب دودویی}
+\dictentry{binary mask vector}{بردار ماسک دودویی}
+\dictentry{black-box}{جعبه‌سیاه}
+\dictentry{black-box model}{مدل جعبه‌سیاه}
+\dictentry{BLEU}{معیار بلو}
+\dictentry{block-diagonal}{بلوک-قطری}
+\dictentry{Boolean lattice}{مشبکه‌ی بولی}
+\dictentry{bottleneck}{گلوگاه}
+\dictentry{broadcasting}{پخش‌پذیری}
+\dictentry{budget constraint}{قید بودجه}
+\dictentry{byte-pair encoding}{رمزگذاری جفت‌بایت}
+\dictentry{candidate}{کاندیدا}
+\dictentry{capacity}{ظرفیت}
+\dictentry{cardinality}{کاردینالیتی}
+\dictentry{causal}{علّی}
+\dictentry{causal abstraction}{انتزاع علّی}
+\dictentry{causal attention}{توجه علّی}
+\dictentry{causal inner product}{ضرب داخلی علّی}
+\dictentry{causality loss}{زیان علّیت}
+\dictentry{causal mask}{ماسک علّی}
+\dictentry{causal representation learning}{یادگیری بازنمایی علّی}
+\dictentry{causal tracing}{ردیابی علّی}
+\dictentry{center point}{نقطه‌ی مرکزی}
+\dictentry{chain-of-thought}{زنجیره‌ی افکار}
+\dictentry{chain-of-verification}{زنجیره‌ی اعتبارسنجی}
+\dictentry{chain rule of probability}{قاعده‌ی ضرب احتمالات}
+\dictentry{checkpoint}{نقطه‌ی بازرسی}
+\dictentry{circuit}{مدار}
+\dictentry{circuit discovery}{کشف مدار}
+\dictentry{classification}{دسته‌بندی}
+\dictentry{classification head}{سر دسته‌بندی}
+\dictentry{classifier}{دسته‌بند}
+\dictentry{classify}{دسته‌بندی کردن}
+\dictentry{clique}{کلیک}
+\dictentry{closed commercial systems}{سیستم‌های تجاری و بسته}
+\dictentry{coherence-intervention trade-off}{مصالحه‌ی انسجام-مداخله}
+\dictentry{combinatorial optimization}{بهینه‌سازی ترکیبیاتی}
+\dictentry{combinatorial space}{فضای ترکیبیاتی}
+\dictentry{compact}{فشرده}
+\dictentry{compactness}{فشردگی}
+\dictentry{compatibility}{انطباق‌پذیری}
+\dictentry{compatibility function}{تابع انطباق‌پذیری}
+\dictentry{compatibility pattern}{الگوی انطباق‌پذیری}
+\dictentry{compatibility patterns}{الگوهای انطباق‌پذیری}
+\dictentry{completeness}{کامل‌بودن}
+\dictentry{complexity}{پیچیدگی}
+\dictentry{component attribution}{انتساب مؤلفه}
+\dictentry{compositional concept extraction}{استخراج مفهوم ترکیب‌پذیر}
+\dictentry{comprehensiveness}{جامعیت}
+\dictentry{compression}{فشرده‌سازی}
+\dictentry{computational complexity}{پیچیدگی محاسباتی}
+\dictentry{computational cost}{هزینه‌ی محاسباتی}
+\dictentry{computational efficiency}{کارایی محاسباتی}
+\dictentry{computational graph}{گراف محاسباتی}
+\dictentry{concatenation}{الحاق}
+\dictentry{concept}{مفهوم}
+\dictentry{concept activation vector}{بردار فعال‌سازی مفهوم}
+\dictentry{concept-based explanation}{توضیح مبتنی بر مفهوم}
+\dictentry{concept bottleneck}{گلوگاه مفهومی}
+\dictentry{concept bottleneck model}{مدل گلوگاه مفهومی}
+\dictentry{concept bottleneck models}{مدل‌های گلوگاه مفهومی}
+\dictentry{concept embedding model}{مدل تعبیه‌ی مفهوم}
+\dictentry{concept-level}{در سطح مفهوم}
+\dictentry{concept representation}{بازنمایی مفهوم}
+\dictentry{conceptual explainer}{مفسر مفهومی}
+\dictentry{Concrete distribution}{توزیع کانکریت}
+\dictentry{conditional masked language model}{مدل زبانی ماسک‌شده‌ی شرطی}
+\dictentry{conditional noise contrastive estimation}{تخمین تقابلی نویز شرطی}
+\dictentry{conditional probability distribution}{توزیع احتمال شرطی}
+\dictentry{conditional random field}{میدان تصادفی شرطی}
+\dictentry{consistency}{سازگاری}
+\dictentry{constant-time}{زمان‌ثابت}
+\dictentry{constrained combinatorial optimization}{بهینه‌سازی ترکیبیاتی مقید}
+\dictentry{constrained text generation}{تولید متن مقید}
+\dictentry{construction-integration}{ساخت‌وساز-ادغام}
+\dictentry{Construction-Integration model}{مدل ساخت‌وساز-ادغام}
+\dictentry{context}{بافتار}
+\dictentry{context length}{طول بافتار}
+\dictentry{context-length probing}{کاوش طول بافتار}
+\dictentry{context principle}{اصل بافتار}
+\dictentry{contextual embedding}{تعبیه‌ی بافتاری}
+\dictentry{contextualized embedding}{تعبیه‌ی بافتاری}
+\dictentry{context window}{پنجره‌ی بافتار}
+\dictentry{continuous}{پیوسته}
+\dictentry{continuous relaxation}{آزادسازی پیوسته}
+\dictentry{contrastive}{تقابلی}
+\dictentry{contrastive divergence}{واگرایی تقابلی}
+\dictentry{contrastive feature attribution}{انتساب ویژگی تقابلی}
+\dictentry{contrastive learning}{یادگیری تقابلی}
+\dictentry{contrastive loss}{زیان تقابلی}
+\dictentry{contrastive training}{آموزش تقابلی}
+\dictentry{convergence}{همگرایی}
+\dictentry{convex}{محدب}
+\dictentry{convolution}{پیچش}
+\dictentry{convolutional}{پیچشی}
+\dictentry{convolutional network}{شبکه‌ی پیچشی}
+\dictentry{cooperative game theory}{نظریه‌ی بازی‌های همکارانه}
+\dictentry{corpus}{پیکره}
+\dictentry{cosine similarity}{شباهت کسینوسی}
+\dictentry{cost-augmented}{افزوده-با-هزینه}
+\dictentry{cost function}{تابع هزینه}
+\dictentry{counterfactual}{پادواقعی}
+\dictentry{counterfactual explanations}{توضیحات پادواقعی}
+\dictentry{counterfactual pair}{جفت پادواقعی}
+\dictentry{counterfactual sampling}{نمونه‌برداری پادواقعی}
+\dictentry{cover}{پوشش}
+\dictentry{credit attribution}{انتساب اعتبار}
+\dictentry{critic}{منتقد}
+\dictentry{cross-attention}{توجه متقاطع}
+\dictentry{cross-attention layer}{لایه‌ی توجه متقاطع}
+\dictentry{cross-encoder}{رمزگذار متقاطع}
+\dictentry{cross-entropy}{آنتروپی متقاطع}
+\dictentry{cross-entropy loss}{زیان آنتروپی متقاطع}
+\dictentry{cross-validation}{اعتبارسنجی متقاطع}
+\dictentry{data}{داده}
+\dictentry{data augmentation}{افزایش داده}
+\dictentry{data mining}{داده‌کاوی}
+\dictentry{dataset}{مجموعه‌داده}
+\dictentry{data-to-text generation}{تولید متن از روی داده}
+\dictentry{debugging}{عیب‌یابی}
+\dictentry{decision boundary}{مرز تصمیم}
+\dictentry{decision function}{تابع تصمیم}
+\dictentry{decision tree}{درخت تصمیم}
+\dictentry{decoder}{رمزگشا}
+\dictentry{decoding}{رمزگشایی}
+\dictentry{decoding strategy}{راهبرد رمزگشایی}
+\dictentry{deep learning}{یادگیری عمیق}
+\dictentry{deep Taylor decomposition}{تجزیه‌ی تیلور عمیق}
+\dictentry{deep value networks}{شبکه‌های ارزش عمیق}
+\dictentry{degree}{درجه}
+\dictentry{deletion AUC}{سطح زیر منحنی حذف}
+\dictentry{denoising k-sparse autoencoder}{خودرمزگذار نویزگیر کا-خلوت}
+\dictentry{dense}{متراکم}
+\dictentry{density}{تراکم}
+\dictentry{dependency parsing}{تجزیه‌ی وابستگی}
+\dictentry{deterministic}{قطعی}
+\dictentry{dictionary learning}{یادگیری دیکشنری}
+\dictentry{differentiation operator}{عملگر مشتق‌پذیری}
+\dictentry{differentiation operators}{عملگرهای مشتق‌پذیری}
+\dictentry{diffusion model}{مدل انتشاری}
+\dictentry{dimension}{بُعد}
+\dictentry{dimensionality reduction}{کاهش ابعاد}
+\dictentry{direct preference optimization}{بهینه‌سازی مستقیم ترجیحات}
+\dictentry{discrete}{گسسته}
+\dictentry{discrete diffusion}{مدل انتشاری گسسته}
+\dictentry{discrete tokens}{توکن‌های گسسته}
+\dictentry{discriminative}{متمایزگر}
+\dictentry{discriminator}{متمایزگر}
+\dictentry{disentangled representation}{بازنمایی تفکیک‌شده}
+\dictentry{disentangled representations}{بازنمایی‌های تفکیک‌شده}
+\dictentry{distance}{فاصله}
+\dictentry{distributed}{توزیع‌شده}
+\dictentry{distributed alignment search}{جستجوی هم‌ترازی توزیع‌شده}
+\dictentry{distributed representation}{بازنمایی توزیع‌شده}
+\dictentry{distribution}{توزیع}
+\dictentry{distributional hypothesis}{فرضیه‌ی توزیعی}
+\dictentry{distributional shift}{شوک توزیعی}
+\dictentry{divergence}{واگرایی}
+\dictentry{dominate}{غلبه}
+\dictentry{dot product}{ضرب نقطه‌ای}
+\dictentry{doubling}{دوبرابرسازی}
+\dictentry{downstream task}{وظیفه‌ی پایین‌دست}
+\dictentry{DPO}{بهینه‌سازی مستقیم ترجیحات}
+\dictentry{dropout}{رهاسازی}
+\dictentry{Dyck languages}{زبان‌های دایک}
+\dictentry{edge}{یال}
+\dictentry{efficiency}{کارایی}
+\dictentry{efficient}{کارا}
+\dictentry{eigenvector}{بردار ویژه}
+\dictentry{element-wise product}{ضرب درایه‌به‌درایه}
+\dictentry{embedding}{تعبیه}
+\dictentry{embedding space}{فضای تعبیه}
+\dictentry{empirical faithfulness}{وفاداری تجربی}
+\dictentry{encoder}{رمزگذار}
+\dictentry{encoder-decoder}{رمزگذار-رمزگشا}
+\dictentry{end-to-end}{انتها‌به‌انتها}
+\dictentry{energy-based model}{مدل مبتنی بر انرژی}
+\dictentry{energy-based reranking}{رتبه‌بندی مجدد مبتنی بر انرژی}
+\dictentry{energy-based reward model}{مدل پاداش مبتنی بر انرژی}
+\dictentry{energy-based surrogate}{جانشین مبتنی بر انرژی}
+\dictentry{energy gap}{شکاف انرژی}
+\dictentry{energy landscape}{چشم‌انداز انرژی}
+\dictentry{energy network}{شبکه‌ی انرژی}
+\dictentry{energy separation margin}{حاشیه‌ی تفکیک انرژی}
+\dictentry{entanglement}{درهم‌تنیدگی}
+\dictentry{entropy}{آنتروپی}
+\dictentry{epoch}{ایپاک}
+\dictentry{ERASER}{محک ایریسر}
+\dictentry{erasure metric}{معیار فرسایشی}
+\dictentry{erasure metrics}{معیارهای فرسایشی}
+\dictentry{ESCI}{جانشین مبتنی بر انرژی برای تفسیر در سطح مفهوم}
+\dictentry{estimation}{برآورد}
+\dictentry{Euclidean distance}{فاصله‌ی اقلیدسی}
+\dictentry{evaluation}{ارزیابی}
+\dictentry{evaluation metric}{معیار ارزیابی}
+\dictentry{evidence lower bound}{کران پایین شواهد}
+\dictentry{expectation}{امید ریاضی}
+\dictentry{experimental}{تجربی}
+\dictentry{explainability}{توضیح‌پذیری}
+\dictentry{explainable AI}{هوش مصنوعی توضیح‌پذیر}
+\dictentry{exponential}{نمایی}
+\dictentry{exponential decay}{افت نمایی}
+\dictentry{exponential kernel}{هسته‌ی نمایی}
+\dictentry{exposure bias}{سوگیری مواجهه}
+\dictentry{extreme}{حدی}
+\dictentry{faithfulness}{وفاداری}
+\dictentry{faithfulness evaluation}{ارزیابی وفاداری}
+\dictentry{feature}{ویژگی}
+\dictentry{feature attribution}{انتساب ویژگی}
+\dictentry{feature extraction}{استخراج ویژگی}
+\dictentry{feature importance}{اهمیت ویژگی}
+\dictentry{feature map}{نقشه‌ی ویژگی}
+\dictentry{feature omission}{حذف ویژگی}
+\dictentry{feature selection}{انتخاب ویژگی}
+\dictentry{feedforward}{پیش‌خور}
+\dictentry{feedforward layer}{لایه‌ی پیش‌خور}
+\dictentry{feedforward neural network}{شبکه‌ی عصبی پیش‌خور}
+\dictentry{feedforward sublayer}{زیرلایه‌ی پیش‌خور}
+\dictentry{few-shot prompting}{پرامپت‌دهی چندنمونه‌ای}
+\dictentry{fidelity}{وفاداری}
+\dictentry{fine-tuning}{تنظیم ظریف}
+\dictentry{finite alphabet}{الفبای متناهی}
+\dictentry{flatten}{تخت کردن}
+\dictentry{flattening}{مسطح کردن}
+\dictentry{foil}{پادنمونه}
+\dictentry{foil class}{کلاس پادنمونه}
+\dictentry{formal}{رسمی}
+\dictentry{forward pass}{پیش‌رو}
+\dictentry{free energy}{انرژی آزاد}
+\dictentry{freeze}{انجماد}
+\dictentry{frontier}{مرزی}
+\dictentry{frozen}{منجمد}
+\dictentry{frozen model}{مدل منجمد}
+\dictentry{functionally-grounded evaluation}{ارزیابی کارکردمحور}
+\dictentry{fuzzy string matching}{تطبیق فازی رشته‌ها}
+\dictentry{generalization}{تعمیم‌پذیری}
+\dictentry{generalization bound}{کران تعمیم}
+\dictentry{generalization error}{خطای تعمیم}
+\dictentry{generation}{تولید}
+\dictentry{generative}{مولد}
+\dictentry{generative adversarial network}{شبکه‌ی مولد تخاصمی}
+\dictentry{generative AI auditing}{ممیزی هوش مصنوعی مولد}
+\dictentry{generative explainable AI}{هوش مصنوعی مولد تفسیرپذیر}
+\dictentry{generative model}{مدل مولد}
+\dictentry{generator-evaluator gap}{فرضیه‌ی شکاف تولیدکننده-ارزیاب}
+\dictentry{geometric instability}{ناپایداری هندسی}
+\dictentry{geometric stability}{پایداری هندسی}
+\dictentry{Gibbs-Boltzmann distribution}{توزیع گیبس-بولتزمن}
+\dictentry{Gibbs sampling}{نمونه‌برداری گیبس}
+\dictentry{glass-box}{جعبه‌شیشه‌ای}
+\dictentry{global average pooling}{تجمیع میانگین سراسری}
+\dictentry{global minimum}{کمینه سراسری}
+\dictentry{global negative}{نمونه‌ی منفی سراسری}
+\dictentry{Goodhart's law}{قانون گودهارت}
+\dictentry{GPU hours}{ساعت محاسباتی کارت گرافیک}
+\dictentry{gradient}{گرادیان}
+\dictentry{gradient ascent}{گرادیان افزایشی}
+\dictentry{gradient descent}{گرادیان کاهشی}
+\dictentry{gradient saturation}{اشباع گرادیان}
+\dictentry{graph}{گراف}
+\dictentry{gray-box}{جعبه‌خاکستری}
+\dictentry{gray-box model}{مدل جعبه‌خاکستری}
+\dictentry{greedy}{حریصانه}
+\dictentry{greedy coordinate gradient}{گرادیان مختصات حریصانه}
+\dictentry{greedy decoding}{رمزگشایی حریصانه}
+\dictentry{greedy matching}{تطبیق حریصانه}
+\dictentry{grounding}{لنگراندازی}
+\dictentry{ground-truth}{حقیقت پایه}
+\dictentry{grouped-query attention}{توجه پرسمان گروهی}
+\dictentry{Gumbel-max trick}{ترفند گامبل-مکس}
+\dictentry{Gumbel-softmax}{گامبل-سافت‌مکس}
+\dictentry{Hadamard product}{ضرب هادامارد}
+\dictentry{half-space}{نیم‌فضا}
+\dictentry{hallucination}{توهم}
+\dictentry{hallucination mitigation}{کاهش توهم}
+\dictentry{Hamming distance}{فاصله‌ی همینگ}
+\dictentry{hard negative sample}{نمونه‌ی منفی سخت}
+\dictentry{hardware specification}{مشخصات سخت‌افزاری}
+\dictentry{HC3}{پیکره‌ی مقایسه‌ای انسان و چت‌جی‌پی‌تی}
+\dictentry{heuristic}{اکتشافی}
+\dictentry{hidden bias}{سوگیری پنهان}
+\dictentry{hidden biases}{سوگیری‌های پنهان}
+\dictentry{hidden layer}{لایه‌ی پنهان}
+\dictentry{hidden state}{حالت پنهان}
+\dictentry{hierarchical}{سلسله‌مراتبی}
+\dictentry{high dimensions}{ابعاد بالا}
+\dictentry{high-impact concepts}{مفاهیم پرنفوذ}
+\dictentry{high-stakes domain}{حوزه‌ی پرمخاطره}
+\dictentry{high-stakes domains}{حوزه‌های پرمخاطره}
+\dictentry{hinge loss}{زیان مفصلی}
+\dictentry{human-computer interaction}{تعامل انسان و رایانه}
+\dictentry{human-grounded evaluation}{ارزیابی انسان‌محور}
+\dictentry{hyperparameter}{ابرپارامتر}
+\dictentry{hypothesis space}{فضای فرضیه}
+\dictentry{identifiability}{همانندپذیری}
+\dictentry{importance mask}{ماسک اهمیت}
+\dictentry{importance sampling}{نمونه‌برداری اهمیتی}
+\dictentry{in-batch negative}{نمونه‌ی منفی درون‌دسته}
+\dictentry{in-context learning}{یادگیری درون‌بافتاری}
+\dictentry{induction}{استقرا}
+\dictentry{induction head}{سر استقرایی}
+\dictentry{inductive bias}{سوگیری استقرایی}
+\dictentry{inference}{استنتاج}
+\dictentry{inference time}{زمان استنتاج}
+\dictentry{influence function}{تابع نفوذ}
+\dictentry{influence functions}{توابع نفوذ}
+\dictentry{InfoNCE}{تخمین تقابلی نویز اطلاعاتی}
+\dictentry{information bottleneck}{گلوگاه اطلاعاتی}
+\dictentry{information gain}{افزایش اطلاعات}
+\dictentry{information leakage}{نشت اطلاعات}
+\dictentry{information retrieval}{بازیابی اطلاعات}
+\dictentry{initialization}{مقداردهی اولیه}
+\dictentry{inpainter}{شبکه‌ی ترمیم‌کننده}
+\dictentry{input layer}{لایه‌ی ورودی}
+\dictentry{input reduction}{کاهش ورودی}
+\dictentry{insertion AUC}{سطح زیر منحنی درج}
+\dictentry{instance}{نمونه}
+\dictentry{instance-wise feature selection}{انتخاب ویژگی در سطح نمونه}
+\dictentry{instruction-tuning}{تنظیم مبتنی بر دستورالعمل}
+\dictentry{integrated gradients}{گرادیان‌های یکپارچه}
+\dictentry{interactive}{تعاملی}
+\dictentry{intermediate activations}{فعال‌سازی‌های میانی}
+\dictentry{interpretability}{تفسیرپذیری}
+\dictentry{interpreter}{مفسر}
+\dictentry{intervention}{مداخله}
+\dictentry{intractable}{غیرقابل‌حل}
+\dictentry{intrinsic}{درونی}
+\dictentry{invariant}{ناوردا}
+\dictentry{inverse Hessian matrix}{معکوس ماتریس هسین}
+\dictentry{inversion}{نابه‌جایی}
+\dictentry{iteration}{تکرار}
+\dictentry{iterative refinement}{پالایش تکرارشونده}
+\dictentry{Jacobian matrix}{ماتریس ژاکوبی}
+\dictentry{joint energy model}{مدل انرژی مشترک}
+\dictentry{kernel}{هسته}
+\dictentry{key}{کلید}
+\dictentry{K-FAC}{تقریب انحنای فاکتورگیری‌شده‌ی کرونکر}
+\dictentry{Kleene closure}{بستار کلینی}
+\dictentry{knowledge base}{پایگاه دانش}
+\dictentry{knowledge distillation}{تقطیر دانش}
+\dictentry{Kronecker product}{ضرب کرونکر}
+\dictentry{Kullback-Leibler divergence}{واگرایی کولبک-لایبلر}
+\dictentry{L2X}{یادگیری برای توضیح}
+\dictentry{label-free concept bottleneck model}{مدل گلوگاه مفهومی بدون‌برچسب}
+\dictentry{label noise}{نویز برچسب}
+\dictentry{Lagrange multipliers}{ضرب‌کننده‌های لاگرانژ}
+\dictentry{Langevin dynamics}{دینامیک لانژون}
+\dictentry{language model}{مدل زبانی}
+\dictentry{large concept model}{مدل مفهومی بزرگ}
+\dictentry{large language model}{مدل زبانی بزرگ}
+\dictentry{large language models}{مدل‌های زبانی بزرگ}
+\dictentry{LASSO}{لاسو}
+\dictentry{LASSO Regression}{رگرسیون لاسو}
+\dictentry{latency}{تأخیر}
+\dictentry{latent debate}{مناظره پنهان}
+\dictentry{latent space}{فضای پنهان}
+\dictentry{latent variable}{متغیر پنهان}
+\dictentry{layer}{لایه}
+\dictentry{layer normalization}{نرمال‌سازی لایه‌ای}
+\dictentry{layer-wise relevance propagation}{انتشار لایه‌به‌لایه‌ی ارتباط}
+\dictentry{learnable}{قابل‌یادگیری}
+\dictentry{learnable positional embeddings}{تعبیه‌های موقعیتی قابل‌یادگیری}
+\dictentry{learning from AI feedback}{یادگیری از بازخورد هوش مصنوعی}
+\dictentry{learning rate}{نرخ یادگیری}
+\dictentry{learning rate warmup}{گرم‌کردن نرخ یادگیری}
+\dictentry{learning to explain}{یادگیری برای توضیح}
+\dictentry{leave-one-out}{حذف یکی}
+\dictentry{lexical overlap}{هم‌پوشانی واژگانی}
+\dictentry{lexical redundancy}{افزونگی واژگانی}
+\dictentry{likelihood}{درست‌نمایی}
+\dictentry{LIME}{توضیحات محلی تفسیرپذیر مستقل از مدل}
+\dictentry{linear}{خطی}
+\dictentry{linear combination}{ترکیب خطی}
+\dictentry{linear probe}{کاوشگر خطی}
+\dictentry{linear probes}{کاوشگرهای خطی}
+\dictentry{linear programming}{برنامه‌ریزی خطی}
+\dictentry{linear regression}{رگرسیون خطی}
+\dictentry{linear representation hypothesis}{فرضیه‌ی بازنمایی خطی}
+\dictentry{linear separability}{تفکیک‌پذیری خطی}
+\dictentry{Lipschitz continuous}{پیوسته لیپشیتس}
+\dictentry{local accuracy}{دقت محلی}
+\dictentry{local interpreter}{مفسر محلی}
+\dictentry{local minimum}{کمینه محلی}
+\dictentry{local negative}{نمونه‌ی منفی محلی}
+\dictentry{local optimum}{بهینه‌ی محلی}
+\dictentry{logit}{لوجیت}
+\dictentry{logit lens}{لنز لوجیت}
+\dictentry{logits}{لوجیت‌ها}
+\dictentry{logit soft-capping}{کنترل نرم لوجیت‌ها}
+\dictentry{log-odds}{نسبت لگاریتم شانس}
+\dictentry{loss}{زیان}
+\dictentry{loss function}{تابع زیان}
+\dictentry{loss landscape}{چشم‌انداز زیان}
+\dictentry{machine learning}{یادگیری ماشین}
+\dictentry{manifold}{خمینه}
+\dictentry{margin}{حاشیه}
+\dictentry{marginal contribution}{مشارکت حاشیه‌ای}
+\dictentry{marginal distribution}{توزیع حاشیه‌ای}
+\dictentry{margin-based}{حاشیه‌محور}
+\dictentry{margin loss}{زیان حاشیه‌ای}
+\dictentry{Markov chain}{زنجیره‌ی مارکوف}
+\dictentry{Markov chain Monte Carlo}{مونت‌کارلوی زنجیره‌ی مارکوف}
+\dictentry{Markov random field}{میدان تصادفی مارکوف}
+\dictentry{masked language model}{مدل زبانی ماسک‌شده}
+\dictentry{masking}{ماسک‌گذاری}
+\dictentry{matrix}{ماتریس}
+\dictentry{matrix multiplication}{ضرب ماتریسی}
+\dictentry{max-flow}{بیشینه-جریان}
+\dictentry{maximum}{بیشینه}
+\dictentry{maximum likelihood}{بیشینه‌ی درست‌نمایی}
+\dictentry{max pooling}{تجمیع بیشینه}
+\dictentry{MCMC}{مونت‌کارلوی زنجیره‌ی مارکوف}
+\dictentry{mean absolute error}{میانگین قدرمطلق خطا}
+\dictentry{mean-field inference}{استنتاج میدان میانگین}
+\dictentry{mean pooling}{تجمیع میانگین}
+\dictentry{mean squared error}{میانگین مربعات خطا}
+\dictentry{mechanistic}{مکانیکی}
+\dictentry{mechanistic interpretability}{تفسیرپذیری مکانیکی}
+\dictentry{memory footprint}{ردپای حافظه}
+\dictentry{metacognitive prompting}{پرامپت‌دهی فراشناختی}
+\dictentry{mini-batch}{ریزدسته}
+\dictentry{minimum}{کمینه}
+\dictentry{mixture of experts}{ترکیب خبرگان}
+\dictentry{mixture of softmaxes}{ترکیب سافت‌مکس‌ها}
+\dictentry{modality}{وجه}
+\dictentry{model-agnostic}{مستقل از مدل}
+\dictentry{model capacity}{ظرفیت مدل}
+\dictentry{model editing}{ویرایش مدل}
+\dictentry{monosemantic}{تک‌معنایی}
+\dictentry{monosemanticity}{تک‌معنایی}
+\dictentry{Monte Carlo}{مونت‌کارلو}
+\dictentry{motivated reasoning}{استدلال هدفمند}
+\dictentry{multi-concept prompt learning}{یادگیری پرامپت چندمفهومی}
+\dictentry{multi-head attention}{توجه چندسره}
+\dictentry{multimodal}{چندوجهی}
+\dictentry{multitask learning}{یادگیری چندوظیفه‌ای}
+\dictentry{mutual information}{اطلاعات متقابل}
+\dictentry{natural language}{زبان طبیعی}
+\dictentry{natural language explanation}{تبیین مبتنی بر زبان طبیعی}
+\dictentry{natural language inference}{استنتاج زبان طبیعی}
+\dictentry{natural language processing}{پردازش زبان طبیعی}
+\dictentry{necessity}{ضرورت}
+\dictentry{negative log-likelihood}{منفی لگاریتم درست‌نمایی}
+\dictentry{negative pair}{جفت منفی}
+\dictentry{negative sampling}{نمونه‌برداری منفی}
+\dictentry{neighborhood}{همسایگی}
+\dictentry{neural architecture}{معماری عصبی}
+\dictentry{neural network}{شبکه‌ی عصبی}
+\dictentry{next sentence prediction}{پیش‌بینی جمله‌ی بعدی}
+\dictentry{n-gram}{ان-گرم}
+\dictentry{node}{گره}
+\dictentry{noise-contrastive estimation}{تخمین تقابلی نویز}
+\dictentry{non-autoregressive}{غیرخودهمبسته}
+\dictentry{non-autoregressive translation}{ترجمه‌ی غیرخودهمبسته}
+\dictentry{non-differentiability}{مشتق‌ناپذیری}
+\dictentry{non-linearity}{غیرخطی‌بودن}
+\dictentry{non-negative matrix factorization}{تجزیه‌ی ماتریس نامنفی}
+\dictentry{nonparametric}{غیرپارامتری}
+\dictentry{norm}{نرم}
+\dictentry{normalization}{نرمال‌سازی}
+\dictentry{normalized discounted cumulative gain}{بهره‌ی تجمعی تنزیل‌یافته‌ی نرمال‌شده}
+\dictentry{NP-complete}{مسئله‌ی ان‌پی کامل}
+\dictentry{NP-hard}{مسئله‌ی ان‌پی سخت}
+\dictentry{nucleus sampling}{نمونه‌برداری هسته‌ای}
+\dictentry{numerical underflow}{زیرسیلان عددی}
+\dictentry{object}{شیء}
+\dictentry{objective function}{تابع هدف}
+\dictentry{observational interpretability}{تفسیرپذیری مشاهده‌ای}
+\dictentry{Occam's razor}{تیغ اوکام}
+\dictentry{occlusion}{انسداد}
+\dictentry{one-hot vector}{بردار یک‌گانه}
+\dictentry{online}{برخط}
+\dictentry{opacity}{عدم‌شفافیت}
+\dictentry{open-domain}{دامنه‌ی باز}
+\dictentry{optimal ablation}{حذف بهینه}
+\dictentry{optimization}{بهینه‌سازی}
+\dictentry{optimum}{بهینه}
+\dictentry{oracle}{اوراکل}
+\dictentry{orthogonal}{متعامد}
+\dictentry{outlier}{پرت}
+\dictentry{outlier data}{داده‌ی پرت}
+\dictentry{out-of-distribution}{خارج از توزیع}
+\dictentry{out-of-vocabulary}{خارج از دایره‌ی واژگان}
+\dictentry{output layer}{لایه‌ی خروجی}
+\dictentry{output probability vector}{بردار احتمالات خروجی}
+\dictentry{overcomplete}{فراتکمیل}
+\dictentry{overfitting}{بیش‌برازش}
+\dictentry{padding}{پدینگ}
+\dictentry{padding mask}{ماسک پدینگ}
+\dictentry{pairwise ranking accuracy}{دقت رتبه‌بندی زوجی}
+\dictentry{parallelization}{موازی‌سازی}
+\dictentry{parameter}{پارامتر}
+\dictentry{parameter space}{فضای پارامترها}
+\dictentry{parametric}{پارامتری}
+\dictentry{parser}{تجزیه‌گر}
+\dictentry{partition}{تقسیم‌بندی}
+\dictentry{partition function}{تابع افراز}
+\dictentry{parts-based representation}{بازنمایی مبتنی بر اجزا}
+\dictentry{performance-interpretability trade-off}{مصالحه‌ی عملکرد-شفافیت}
+\dictentry{periodic grounding}{لنگراندازی دوره‌ای}
+\dictentry{permutation equivariant}{هم‌وردا با جایگشت}
+\dictentry{perplexity}{حیرت}
+\dictentry{perturbation}{اختلال}
+\dictentry{perturbation-based}{مبتنی بر اختلال}
+\dictentry{perturbation curve}{منحنی اختلال}
+\dictentry{phatic expressions}{عبارات فاتیک}
+\dictentry{pipeline}{خط‌لوله}
+\dictentry{placeholder}{جای‌نگه‌دار}
+\dictentry{planar}{مسطح}
+\dictentry{plausibility}{معقولیت}
+\dictentry{plausibility evaluation}{ارزیابی معقولیت}
+\dictentry{pointwise}{نقطه‌به‌نقطه}
+\dictentry{polysemanticity}{چندمعنایی}
+\dictentry{pooling}{تجمیع}
+\dictentry{pooling layer}{لایه‌ی تجمیع}
+\dictentry{positional embedding}{تعبیه‌ی موقعیتی}
+\dictentry{positional encoding}{رمزگذاری موقعیتی}
+\dictentry{position-wise feedforward}{پیش‌خور موقعیت‌محور}
+\dictentry{position-wise feed-forward network}{شبکه‌ی پیش‌خور موقعیت‌محور}
+\dictentry{positive pair}{جفت مثبت}
+\dictentry{post-hoc}{پساعملی}
+\dictentry{post-hoc concept bottleneck model}{مدل گلوگاه مفهومی پساعملی}
+\dictentry{precision}{دقت}
+\dictentry{prediction}{پیش‌بینی}
+\dictentry{pre-processing}{پیش‌پردازش}
+\dictentry{pre-trained}{پیش‌آموزش‌دیده}
+\dictentry{pre-training}{پیش‌آموزش}
+\dictentry{privileged access}{دسترسی ممتاز}
+\dictentry{probability density function}{تابع چگالی احتمال}
+\dictentry{probability distribution}{توزیع احتمال}
+\dictentry{projection}{تصویرسازی}
+\dictentry{projection head}{سر تصویرسازی}
+\dictentry{prompt}{پرامپت}
+\dictentry{prompt engineering}{مهندسی پرامپت}
+\dictentry{prompt injection}{تزریق پرامپت}
+\dictentry{prompt-response}{پرامپت-پاسخ}
+\dictentry{prompts contrastive loss}{زیان تقابلی پرامپت‌ها}
+\dictentry{prompt trigger}{محرک پرامپت}
+\dictentry{prompt-tuning}{تنظیم پرامپت}
+\dictentry{propagating activation differences}{انتشار تفاوت فعال‌سازی‌ها}
+\dictentry{propositional}{گزاره‌ای}
+\dictentry{proposition space}{فضای گزاره‌ها}
+\dictentry{pruning}{هرس}
+\dictentry{pseudo-norm}{شبه‌نرم}
+\dictentry{punctuation}{علائم نگارشی}
+\dictentry{qualitative analysis}{تحلیل کیفی}
+\dictentry{quantitative analysis}{تحلیل کمّی}
+\dictentry{query}{پرسمان}
+\dictentry{RAG}{تولید تقویت‌شده با بازیابی}
+\dictentry{random variable}{متغیر تصادفی}
+\dictentry{random walk}{گشت تصادفی}
+\dictentry{rank}{رتبه}
+\dictentry{rank deficiency}{کمبود رتبه}
+\dictentry{rank-one model editing}{ویرایش مدل رتبه‌یک}
+\dictentry{rationalization}{دلیل‌تراشی}
+\dictentry{reasoning}{استدلال}
+\dictentry{recall}{بازخوانی}
+\dictentry{reconstruction}{بازسازی}
+\dictentry{reconstruction loss}{زیان بازسازی}
+\dictentry{recurrent neural network}{شبکه‌ی عصبی بازگشتی}
+\dictentry{regex}{عبارت منظم}
+\dictentry{regression}{رگرسیون}
+\dictentry{regular expression}{عبارت منظم}
+\dictentry{regularization}{منظم‌سازی}
+\dictentry{regularization term}{جمله‌ی منظم‌سازی}
+\dictentry{regularizer}{منظم‌ساز}
+\dictentry{reinforcement learning}{یادگیری تقویتی}
+\dictentry{reinforcement learning from AI feedback}{یادگیری تقویتی با بازخورد هوش مصنوعی}
+\dictentry{reinforcement learning from human feedback}{یادگیری تقویتی با بازخورد انسانی}
+\dictentry{remove and retrain}{حذف و آموزش مجدد}
+\dictentry{reparameterization trick}{ترفند بازپارامتربندی}
+\dictentry{representation}{بازنمایی}
+\dictentry{representation collapse}{فروپاشی بازنمایی}
+\dictentry{reranking}{رتبه‌بندی مجدد}
+\dictentry{residual}{باقیمانده}
+\dictentry{residual connection}{اتصال باقیمانده}
+\dictentry{residual energy-based model}{مدل انرژی پسماند}
+\dictentry{residual stream}{جریان باقیمانده}
+\dictentry{response}{پاسخ}
+\dictentry{response sequence}{توالی پاسخ}
+\dictentry{retrieval-augmented generation}{تولید تقویت‌شده با بازیابی}
+\dictentry{reward}{پاداش}
+\dictentry{reward hacking}{تقلب در پاداش}
+\dictentry{RLAIF}{یادگیری تقویتی با بازخورد هوش مصنوعی}
+\dictentry{RLHF}{یادگیری تقویتی با بازخورد انسانی}
+\dictentry{robustness}{استحکام}
+\dictentry{ROUGE}{معیار روژ}
+\dictentry{rule-based system}{سامانه‌ی مبتنی بر قاعده}
+\dictentry{runtime}{زمان اجرا}
+\dictentry{saddle point}{نقطه‌ی زینی}
+\dictentry{safety auditing}{ممیزی ایمنی}
+\dictentry{salience}{برجستگی}
+\dictentry{saliency map}{نقشه‌ی برجستگی}
+\dictentry{sampler}{نمونه‌بردار}
+\dictentry{sample size}{اندازه‌ی نمونه}
+\dictentry{sampling}{نمونه‌برداری}
+\dictentry{satisfiability}{صدق‌پذیری}
+\dictentry{scalability}{مقیاس‌پذیری}
+\dictentry{scalar}{اسکالر}
+\dictentry{scaled dot-product attention}{توجه نقطه‌ای مقیاس‌یافته}
+\dictentry{score matching}{تطبیق امتیاز}
+\dictentry{search space}{فضای جستجو}
+\dictentry{segmentation}{تقطیع}
+\dictentry{self-attention}{خودتوجهی}
+\dictentry{self-attention attribution}{انتساب خودتوجهی}
+\dictentry{self-attention layer}{لایه‌ی خودتوجهی}
+\dictentry{self-consistency}{سازگاری درونی}
+\dictentry{SelfIE}{خودتفسیری تعبیه‌ها}
+\dictentry{self-normalizing}{خودنرمال‌ساز}
+\dictentry{self-normalizing importance sampling}{نمونه‌برداری اهمیتی خودنرمال‌ساز}
+\dictentry{self-supervised learning}{یادگیری خود‌نظارتی}
+\dictentry{semantic}{معنایی}
+\dictentry{semantic gap}{شکاف معنایی}
+\dictentry{semantic pseudo-distance}{شبه‌فاصله‌ی معنایی}
+\dictentry{semantic segmentation}{تقطیع معنایی}
+\dictentry{semantic segmentation network}{شبکه‌ی تقطیع معنایی}
+\dictentry{semantic textual similarity}{شباهت معنایی متون}
+\dictentry{semantic-visual priors}{پیش‌فرض‌های بصری-معنایی}
+\dictentry{semi-nonnegative matrix factorization}{فاکتورگیری ماتریس نیمه‌نامنفی}
+\dictentry{semi-supervised learning}{یادگیری نیمه‌بانظارت}
+\dictentry{sentence}{جمله}
+\dictentry{sentence-level}{در سطح جمله}
+\dictentry{sentence pooling}{تجمیع جملات}
+\dictentry{sentence segmentation}{تقطیع جمله}
+\dictentry{separable}{جداپذیر}
+\dictentry{sequence}{توالی}
+\dictentry{sequence-to-sequence}{توالی‌به‌توالی}
+\dictentry{set}{مجموعه}
+\dictentry{SHAP}{توضیحات افزایشی شاپلی}
+\dictentry{Shapley additive explanations}{توضیحات افزایشی شاپلی}
+\dictentry{Shapley value}{مقدار شاپلی}
+\dictentry{Siamese network}{شبکه‌ی سیامی}
+\dictentry{sigmoid}{سیگموئید}
+\dictentry{similarity metric}{معیار شباهت}
+\dictentry{simplex}{سیمپلکس}
+\dictentry{single-selection collapse}{فروپاشی تک‌انتخابی}
+\dictentry{Sobol indices}{شاخص‌های سوبول}
+\dictentry{softmax}{سافت‌مکس}
+\dictentry{SOInter}{مفسر خروجی ساختاریافته}
+\dictentry{source attribution}{انتساب به منبع}
+\dictentry{space}{فضا}
+\dictentry{sparse}{خلوت}
+\dictentry{sparse autoencoder}{خودرمزگذار خلوت}
+\dictentry{sparse autoencoders}{خودرمزگذارهای خلوت}
+\dictentry{sparse mixture of experts}{ترکیب خلوت خبرگان}
+\dictentry{sparse representation}{بازنمایی خلوت}
+\dictentry{sparsifier}{خلوت‌ساز}
+\dictentry{sparsity}{خلوتی}
+\dictentry{sparsity-constrained}{مقید به خلوتی}
+\dictentry{spatial localization}{محلی‌سازی فضایی}
+\dictentry{spatial mask}{ماسک مکانی}
+\dictentry{Spearman's rank correlation}{همبستگی رتبه‌ای اسپیرمن}
+\dictentry{spoofing}{جعل}
+\dictentry{stability}{پایداری}
+\dictentry{static embeddings}{تعبیه‌های ایستا}
+\dictentry{steering vector}{بردار هدایت‌گر}
+\dictentry{step-unrolling}{باز کردن گام‌به‌گام}
+\dictentry{stochastic}{تصادفی}
+\dictentry{stopword}{ایست‌واژه}
+\dictentry{stopwords}{ایست‌واژه‌ها}
+\dictentry{structural constraint}{محدودیت ساختاری}
+\dictentry{structure-aware loss function}{تابع زیان آگاه به ساختار}
+\dictentry{structured masking}{ماسک‌گذاری ساختاریافته}
+\dictentry{structured prediction}{پیش‌بینی ساختاریافته}
+\dictentry{sublinear}{زیرخطی}
+\dictentry{subspace}{زیرفضا}
+\dictentry{subword}{زیرواژه}
+\dictentry{subword tokenization}{توکن‌سازی زیرواژه‌ای}
+\dictentry{sufficiency}{کفایت}
+\dictentry{superposition}{برهم‌نهی}
+\dictentry{supervised learning}{یادگیری با‌نظارت}
+\dictentry{surrogate}{جانشین}
+\dictentry{surrogate interpreter}{مفسر جانشین}
+\dictentry{surrogate model}{مدل جانشین}
+\dictentry{symmetric Dirichlet distribution}{توزیع دیریکله‌ی متقارن}
+\dictentry{syntactic collapse}{فروپاشی نحوی}
+\dictentry{syntactic segmentation operator}{عملگر تقطیع نحوی}
+\dictentry{syntactic structure}{ساختار نحوی}
+\dictentry{target model}{مدل هدف}
+\dictentry{target subset}{زیرمجموعه‌ی هدف}
+\dictentry{temperature}{دما}
+\dictentry{temperature annealing}{تبرید دما}
+\dictentry{tensor}{تانسور}
+\dictentry{test set}{مجموعه‌ی آزمون}
+\dictentry{test-time intervention}{مداخله در زمان آزمون}
+\dictentry{textbase}{پایگاه متن}
+\dictentry{text generation}{تولید متن}
+\dictentry{textual entailment}{استلزام متنی}
+\dictentry{threshold}{آستانه}
+\dictentry{time complexity}{پیچیدگی زمانی}
+\dictentry{token}{توکن}
+\dictentry{token embedding}{تعبیه‌ی توکن}
+\dictentry{tokenization}{توکن‌سازی}
+\dictentry{tokenize}{توکن‌سازی کردن}
+\dictentry{tokenizer}{توکن‌ساز}
+\dictentry{top-k sampling}{نمونه‌برداری تاپ-کی}
+\dictentry{top-p sampling}{نمونه‌برداری تاپ-پی}
+\dictentry{total variation distance}{فاصله‌ی تغییرات کل}
+\dictentry{tracing}{ردیابی}
+\dictentry{trade-off}{مصالحه}
+\dictentry{training data}{داده آموزشی}
+\dictentry{training dynamics}{دینامیک آموزش}
+\dictentry{training set}{مجموعه‌ی آموزشی}
+\dictentry{transfer learning}{یادگیری انتقالی}
+\dictentry{transformation}{تبدیل}
+\dictentry{transformer}{ترنسفورمر}
+\dictentry{transition}{انتقال}
+\dictentry{transition probability}{احتمال انتقال}
+\dictentry{transparent}{شفاف}
+\dictentry{tree-of-thoughts}{درخت افکار}
+\dictentry{triplet loss}{زیان سه‌گانه}
+\dictentry{truncate}{برش زدن}
+\dictentry{truncated randomized search}{جستجوی تصادفی بریده‌شده}
+\dictentry{truncation}{کوتاه‌سازی}
+\dictentry{tuned lens}{لنز تنظیم‌شده}
+\dictentry{tuning}{تنظیم}
+\dictentry{two-dimensional}{جفت‌بُعد}
+\dictentry{uncertainty}{عدم‌قطعیت}
+\dictentry{underfitting}{کم‌برازش}
+\dictentry{unembedding}{تعبیه‌زدایی}
+\dictentry{unembedding matrix}{ماتریس تعبیه‌زدایی}
+\dictentry{unembedding space}{فضای تعبیه‌زدایی}
+\dictentry{uniform distribution}{توزیع یکنواخت}
+\dictentry{unit of analysis}{واحد تحلیل}
+\dictentry{unit vector}{بردار یکه}
+\dictentry{unnormalized}{نرمال‌نشده}
+\dictentry{unnormalized compatibility function}{تابع انطباق‌پذیری نرمال‌نشده}
+\dictentry{unroll}{باز کردن محاسباتی}
+\dictentry{unsupervised learning}{یادگیری بی‌نظارت}
+\dictentry{validation set}{مجموعه‌ی اعتبارسنجی}
+\dictentry{value}{ارزش}
+\dictentry{variance}{واریانس}
+\dictentry{variational autoencoder}{خودرمزگذار متغیر}
+\dictentry{variational Bayesian}{بیزی متغیر}
+\dictentry{variational lower bound}{کران پایین متغیر}
+\dictentry{vector}{بردار}
+\dictentry{vector space}{فضای برداری}
+\dictentry{vertex}{رأس}
+\dictentry{Vision Transformer}{ترنسفورمر بینایی}
+\dictentry{vocabulary}{دایره‌ی واژگان}
+\dictentry{warmup steps}{گام‌های گرم‌کردن}
+\dictentry{weight decay}{کاهش وزن}
+\dictentry{weight matrix}{ماتریس وزن‌ها}
+\dictentry{white-box}{جعبه‌سفید}
+\dictentry{white-box model}{مدل جعبه‌سفید}
+\dictentry{zero-shot}{صفر-نمونه}
+\dictentry{zero-shot chain-of-thought}{استدلال زنجیره‌ای صفر-نمونه}
+\dictentry{zero-shot CoT}{استدلال زنجیره‌ای صفر-نمونه}
+\dictentry{zeroth-order query model}{مدل پرس‌وجوی مرتبه‌صفر}
+\dictentry{absolute position}{موقعیت مطلق}
+\dictentry{analytic philosophy of language}{فلسفه‌ی تحلیلی زبان}
+\dictentry{angular frequency}{بسامد زاویه‌ای}
+\dictentry{application-grounded}{کاربردمحور}
+\dictentry{attention weights matrix}{ماتریس وزن‌های توجه}
+\dictentry{attractive force}{نیروی جاذبه}
+\dictentry{base transformer}{ترنسفورمر پایه}
+\dictentry{batch normalization}{نرمال‌سازی دسته‌ای}
+\dictentry{BERT}{مدل برت}
+\dictentry{bias vector}{بردار سوگیری}
+\dictentry{binary classification}{دسته‌بندی دودویی}
+\dictentry{binary importance mask}{ماسک اهمیت دودویی}
+\dictentry{black-box regime}{رژیم جعبه‌سیاه}
+\dictentry{BPE}{رمزگذاری جفت‌بایت}
+\dictentry{causal self-attention}{خودتوجهی علّی}
+\dictentry{cliques}{کلیک‌ها}
+\dictentry{cognitive psychology}{روان‌شناسی شناختی}
+\dictentry{community theory}{نظریه‌ی جوامع}
+\dictentry{complexity penalty}{جریمه‌ی پیچیدگی}
+\dictentry{complete graph}{گراف کامل}
+\dictentry{conditional mutual information}{اطلاعات متقابل شرطی}
+\dictentry{conditional random fields}{میدان‌های تصادفی شرطی}
+\dictentry{CRF}{میدان تصادفی شرطی}
+\dictentry{DeepNN}{شبکه‌ی عصبی عمیق}
+\dictentry{distributed representations}{بازنمایی‌های توزیع‌شده}
+\dictentry{dynamic programming}{برنامه‌ریزی پویا}
+\dictentry{EBM}{مدل مبتنی بر انرژی}
+\dictentry{end-of-sequence token}{توکن پایان توالی}
+\dictentry{energy-based models}{مدل‌های مبتنی بر انرژی}
+\dictentry{Euclidean norm}{نرم اقلیدسی}
+\dictentry{feedforward network}{شبکه‌ی پیش‌خور}
+\dictentry{feedforward networks}{شبکه‌های پیش‌خور}
+\dictentry{FFN}{شبکه‌ی پیش‌خور}
+\dictentry{finite sequence}{دنباله‌ی متناهی}
+\dictentry{finite sequences}{دنباله‌های متناهی}
+\dictentry{forward-backward algorithm}{الگوریتم پیشرو-پسرو}
+\dictentry{fuzzy graph}{گراف فازی}
+\dictentry{geometric progression}{تصاعد هندسی}
+\dictentry{global feature selection}{انتخاب ویژگی سراسری}
+\dictentry{GPT}{مدل جی‌پی‌تی}
+\dictentry{Gumbel noise}{نویز گامبل}
+\dictentry{hard negative samples}{نمونه‌های منفی سخت}
+\dictentry{high-stakes}{پرمخاطره}
+\dictentry{information noise-contrastive estimation}{تخمین تقابلی نویز اطلاعاتی}
+\dictentry{INVASE}{روش اینویس}
+\dictentry{joint distribution}{توزیع توأم}
+\dictentry{key matrix}{ماتریس کلیدها}
+\dictentry{KL divergence}{واگرایی کولبک-لایبلر}
+\dictentry{L0 pseudo-norm}{شبه‌نرم صفر}
+\dictentry{LayerNorm}{نرمال‌سازی لایه‌ای}
+\dictentry{linear algebra}{جبر خطی}
+\dictentry{LLaMA}{مدل لاما}
+\dictentry{LLM}{مدل زبانی بزرگ}
+\dictentry{LN}{نرمال‌سازی لایه‌ای}
+\dictentry{local potential}{پتانسیل محلی}
+\dictentry{local potentials}{پتانسیل‌های محلی}
+\dictentry{logistic regression}{رگرسیون لجستیک}
+\dictentry{Markov assumption}{فرض مارکوف}
+\dictentry{mean squared error loss}{زیان میانگین مربعات خطا}
+\dictentry{MHA}{توجه چندسره}
+\dictentry{NCE}{تخمین تقابلی نویز}
+\dictentry{negative phase}{فاز منفی}
+\dictentry{NLI}{استنتاج زبان طبیعی}
+\dictentry{NLL}{منفی لگاریتم درست‌نمایی}
+\dictentry{one-hot vectors}{بردارهای یک‌گانه}
+\dictentry{one-step conditional probability}{احتمال شرطی یک‌گامی}
+\dictentry{OOD}{خارج از توزیع}
+\dictentry{oracle mapping}{نگاشت اوراکل}
+\dictentry{out-of-distribution data}{داده‌های خارج از توزیع}
+\dictentry{padding token}{توکن پدینگ}
+\dictentry{padding tokens}{توکن‌های پدینگ}
+\dictentry{PE}{رمزگذاری موقعیتی}
+\dictentry{positional information injection}{تزریق اطلاعات موقعیتی}
+\dictentry{positive phase}{فاز مثبت}
+\dictentry{probability density function estimator}{تابع تخمین‌گر چگالی احتمال}
+\dictentry{probability simplex}{سیمپلکس احتمالاتی}
+\dictentry{query matrix}{ماتریس پرسمان‌ها}
+\dictentry{recurrent neural networks}{شبکه‌های عصبی بازگشتی}
+\dictentry{relative distance}{فاصله‌ی نسبی}
+\dictentry{ReLU}{تابع فعال‌سازی رلو}
+\dictentry{repulsive force}{نیروی دافعه}
+\dictentry{residual connections}{اتصالات باقیمانده}
+\dictentry{ResNet}{شبکه‌ی رزنت}
+\dictentry{RoBERTa}{مدل روبرتا}
+\dictentry{RNN}{شبکه‌ی عصبی بازگشتی}
+\dictentry{safety margin}{حاشیه‌ی امن}
+\dictentry{self-regulating}{خودتنظیم}
+\dictentry{semantic graph}{گراف معنایی}
+\dictentry{Sentence-BERT}{شبکه‌ی سنتنس‌برت}
+\dictentry{sequential structure}{ساختار ترتیبی}
+\dictentry{Shannon mutual information}{اطلاعات متقابل شانون}
+\dictentry{Siamese networks}{شبکه‌های سیامی}
+\dictentry{single-head attention}{توجه تک‌سره}
+\dictentry{sinusoidal positional encoding}{رمزگذاری موقعیتی سینوسی}
+\dictentry{softmax operator}{عملگر سافت‌مکس}
+\dictentry{soft memory retrieval}{بازیابی حافظه‌ی نرم}
+\dictentry{sparse mask}{ماسک خلوت}
+\dictentry{sparse masks}{ماسک‌های خلوت}
+\dictentry{sparsity constraint}{قید خلوتی}
+\dictentry{sparsity-constrained optimization}{بهینه‌سازی مقید به خلوتی}
+\dictentry{SPEN}{شبکه‌های انرژی پیش‌بینی ساختاریافته}
+\dictentry{statistical learning theory}{نظریه‌ی یادگیری آماری}
+\dictentry{stochastic gradient descent}{نزول گرادیان تصادفی}
+\dictentry{stochastic process}{فرایند تصادفی}
+\dictentry{stop token}{توکن توقف}
+\dictentry{structural opacity}{عدم‌شفافیت ساختاری}
+\dictentry{structured prediction energy network}{شبکه‌ی انرژی پیش‌بینی ساختاریافته}
+\dictentry{structured prediction energy networks}{شبکه‌های انرژی پیش‌بینی ساختاریافته}
+\dictentry{STS}{شباهت معنایی متون}
+\dictentry{subword perturbation}{اختلال در زیرواژه}
+\dictentry{subword perturbations}{اختلالات زیرواژه‌ای}
+\dictentry{transformer encoder block}{بلوک رمزگذار ترنسفورمر}
+\dictentry{truth value}{ارزش صدق}
+\dictentry{unnormalized scalar}{کمیت اسکالر نرمال‌نشده}
+\dictentry{value matrix}{ماتریس ارزش‌ها}
+\dictentry{vocabulary simplex}{سیمپلکس دایره‌ی واژگان}
+\dictentry{white-box regime}{رژیم جعبه‌سفید}
+\dictentry{ACE}{توضیحات خودکار مبتنی بر مفهوم}
+\dictentry{AMPLIFY}{چارچوب امپلیفای}
+\dictentry{APE}{مهندسی پرامپت خودکار}
+\dictentry{area over the perturbation curve}{سطح روی منحنی اختلال}
+\dictentry{ASP}{پیش‌بینی ساختاریافته‌ی خودهمبسته}
+\dictentry{augmented view}{دیدگاه افزوده}
+\dictentry{automated prompt engineering}{مهندسی پرامپت خودکار}
+\dictentry{automatic concept-based explanations}{توضیحات خودکار مبتنی بر مفهوم}
+\dictentry{BCE}{آنتروپی متقاطع دودویی}
+\dictentry{BFS}{جستجوی اول‌سطح}
+\dictentry{breadth-first search}{جستجوی اول‌سطح}
+\dictentry{CAD}{انتساب مؤلفه}
+\dictentry{causal attention}{توجه علّی}
+\dictentry{CAV}{بردار فعال‌سازی مفهوم}
+\dictentry{CBM}{مدل گلوگاه مفهومی}
+\dictentry{CCE}{استخراج مفهوم ترکیب‌پذیر}
+\dictentry{CEM}{مدل تعبیه‌ی مفهوم}
+\dictentry{CLIP}{مدل کلیپ}
+\dictentry{CMLM}{مدل زبانی ماسک‌شده‌ی شرطی}
+\dictentry{CNCE}{تخمین تقابلی نویز شرطی}
+\dictentry{COLD}{چارچوب کلد}
+\dictentry{COLD Decoding}{رمزگشایی کلد}
+\dictentry{concept activation vectors}{بردارهای فعال‌سازی مفهوم}
+\dictentry{concept embedding models}{مدل‌های تعبیه‌ی مفهوم}
+\dictentry{ConceptSHAP}{مقادیر شاپلی مبتنی بر مفهوم}
+\dictentry{conditional masked language models}{مدل‌های زبانی ماسک‌شده‌ی شرطی}
+\dictentry{convolutional networks}{شبکه‌های پیچشی}
+\dictentry{cost-augmented inference network}{شبکه‌ی استنتاج افزوده-با-هزینه}
+\dictentry{CoT}{زنجیره‌ی افکار}
+\dictentry{CoVe}{زنجیره‌ی اعتبارسنجی}
+\dictentry{c-TF-IDF}{روش تی‌اف-آی‌دی‌اف دسته‌ای}
+\dictentry{deep value network}{شبکه‌ی ارزش عمیق}
+\dictentry{DeepLIFT}{انتشار تفاوت فعال‌سازی‌ها}
+\dictentry{depth-first search}{جستجوی اول‌عمق}
+\dictentry{DFS}{جستجوی اول‌عمق}
+\dictentry{diffusion models}{مدل‌های انتشاری}
+\dictentry{distribution shift}{شوک توزیعی}
+\dictentry{DVN}{شبکه‌های ارزش عمیق}
+\dictentry{EBR}{رتبه‌بندی مجدد مبتنی بر انرژی}
+\dictentry{EBRM}{مدل پاداش مبتنی بر انرژی}
+\dictentry{EDLM}{مدل‌های زبانی انتشاری مبتنی بر انرژی}
+\dictentry{ELBO}{کران پایین شواهد}
+\dictentry{energy-based diffusion language model}{مدل زبانی انتشاری مبتنی بر انرژی}
+\dictentry{energy-based diffusion language models}{مدل‌های زبانی انتشاری مبتنی بر انرژی}
+\dictentry{energy-based inference network}{شبکه‌ی استنتاج مبتنی بر انرژی}
+\dictentry{energy-based inference networks}{شبکه‌های استنتاج مبتنی بر انرژی}
+\dictentry{ENGINE}{شبکه‌های استنتاج مبتنی بر انرژی}
+\dictentry{F1}{امتیاز اف‌یک}
+\dictentry{GeLU}{تابع فعال‌سازی ژلو}
+\dictentry{generative adversarial networks}{شبکه‌های مولد تخاصمی}
+\dictentry{globally-trained local interpreter}{مفسر محلی آموزش‌دیده به‌صورت سراسری}
+\dictentry{Grad-CAM}{نگاشت فعال‌سازی کلاس مبتنی بر گرادیان}
+\dictentry{gradient $\times$ input}{گرادیان ضرب‌در ورودی}
+\dictentry{HI-Concept}{مفاهیم پرنفوذ}
+\dictentry{IG}{گرادیان‌های یکپارچه}
+\dictentry{induction heads}{سرهای استقرایی}
+\dictentry{inpainters}{شبکه‌های ترمیم‌کننده}
+\dictentry{Inseq}{کتابخانه‌ی اینسک}
+\dictentry{Kronecker-factored approximate curvature}{تقریب انحنای فاکتورگیری‌شده‌ی کرونکر}
+\dictentry{label-free concept bottleneck models}{مدل‌های گلوگاه مفهومی بدون‌برچسب}
+\dictentry{label-noise-aware contrastive training}{آموزش تقابلی آگاه به نویز برچسب}
+\dictentry{LAIF}{یادگیری از بازخورد هوش مصنوعی}
+\dictentry{large concept models}{مدل‌های مفهومی بزرگ}
+\dictentry{LCM}{مدل مفهومی بزرگ}
+\dictentry{local interpretable model-agnostic explanations}{توضیحات محلی تفسیرپذیر مستقل از مدل}
+\dictentry{Markov random fields}{میدان‌های تصادفی مارکوف}
+\dictentry{MCPL}{یادگیری پرامپت چندمفهومی}
+\dictentry{MDAS}{جستجوی هم‌ترازی توزیع‌شده چندوظیفه‌ای}
+\dictentry{MLLM}{مدل زبانی بزرگ چندوجهی}
+\dictentry{multimodal large language model}{مدل زبانی بزرگ چندوجهی}
+\dictentry{multimodal large language models}{مدل‌های زبانی بزرگ چندوجهی}
+\dictentry{multitask distributed alignment search}{جستجوی هم‌ترازی توزیع‌شده چندوظیفه‌ای}
+\dictentry{NAT}{ترجمه‌ی ماشینی غیرخودهمبسته}
+\dictentry{natural language explanations}{تبیین‌های مبتنی بر زبان طبیعی}
+\dictentry{NLE}{تبیین‌های مبتنی بر زبان طبیعی}
+\dictentry{NMF}{تجزیه‌ی ماتریس نامنفی}
+\dictentry{non-autoregressive machine translation}{ترجمه‌ی ماشینی غیرخودهمبسته}
+\dictentry{paraphrase}{پارافریز}
+\dictentry{paraphrasing}{پارافریز}
+\dictentry{PCA}{تحلیل مؤلفه‌های اصلی}
+\dictentry{post-hoc concept bottleneck models}{مدل‌های گلوگاه مفهومی پساعملی}
+\dictentry{probabilistic conceptual explainer}{مفسر مفهومی احتمالی}
+\dictentry{probabilistic conceptual explainers}{مفسرهای مفهومی احتمالی}
+\dictentry{REBM}{مدل انرژی پسماند}
+\dictentry{residual energy-based models}{مدل‌های انرژی پسماند}
+\dictentry{ROAR}{حذف و آموزش مجدد}
+\dictentry{ROME}{ویرایش مدل رتبه‌یک}
+\dictentry{SAE}{خودرمزگذار خلوت}
+\dictentry{saliency maps}{نقشه‌های برجستگی}
+\dictentry{self-interpretation of embeddings}{خودتفسیری تعبیه‌ها}
+\dictentry{Semi-NMF}{فاکتورگیری ماتریس نیمه‌نامنفی}
+\dictentry{SFT}{تنظیم ظریف نظارت‌شده}
+\dictentry{supervised fine-tuning}{تنظیم ظریف نظارت‌شده}
+\dictentry{Shapley value-based interpretable policy via explan.\ regression}{خط‌مشی تفسیرپذیر مبتنی بر مقدار شاپلی از طریق رگرسیون تبیین}
+\dictentry{Shapley values}{مقادیر شاپلی}
+\dictentry{SmoothGrad}{روش گرادیان هموار}
+\dictentry{spatial masks}{ماسک‌های مکانی}
+\dictentry{steering vectors}{بردارهای هدایت‌گر}
+\dictentry{Straight-Through estimator}{برآوردگر مستقیم‌گذر}
+\dictentry{SVD}{تجزیه‌ی مقادیر منفرد}
+\dictentry{SwiGLU}{تابع فعال‌سازی سوئی‌گلو}
+\dictentry{TCAV}{ارزیابی کمّی با بردارهای فعال‌سازی مفهوم}
+\dictentry{testing with concept activation vectors}{ارزیابی کمّی با بردارهای فعال‌سازی مفهوم}
+\dictentry{TextGenSHAP}{توضیحات افزایشی شاپلی برای تولید متن}
+\dictentry{ToT}{درخت افکار}
+\dictentry{Truth Probe}{کاوشگر حقیقت}
+\dictentry{unrolled}{بازشده}
+\dictentry{variational autoencoders}{خودرمزگذارهای متغیر}
+\dictentry{ViT}{ترنسفورمر بینایی}
+\dictentry{Vision Transformers}{ترنسفورمرهای بینایی}
+\dictentry{alternating optimization}{بهینه‌سازی تناوبی}
+\dictentry{base model}{مدل پایه}
+\dictentry{base models}{مدل‌های پایه}
+\dictentry{combinatorial search}{جستجوی ترکیبیاتی}
+\dictentry{compatible}{منطبق}
+\dictentry{compatible pair}{جفت منطبق}
+\dictentry{concept depth}{عمق مفهوم}
+\dictentry{contextual grounding}{زمینه‌سازی بافتاری}
+\dictentry{cross-attention interaction}{تعامل توجه متقاطع}
+\dictentry{dependency loss}{زیان وابستگی}
+\dictentry{dependency parser}{تجزیه‌گر وابستگی}
+\dictentry{differentiable operator}{عملگر مشتق‌پذیر}
+\dictentry{discard subset}{زیرمجموعه‌ی دورریز}
+\dictentry{downstream inference}{استنتاج پایین‌دست}
+\dictentry{energy critic}{منتقد انرژی}
+\dictentry{energy scoring function}{تابع امتیازدهی مبتنی بر انرژی}
+\dictentry{Explosion AI}{شرکت اکسپلوژن ای‌آی}
+\dictentry{fidelity loss}{زیان وفاداری}
+\dictentry{fixed critic}{منتقد ثابت}
+\dictentry{geometric proximity}{مجاورت هندسی}
+\dictentry{global fidelity loss}{زیان وفاداری سراسری}
+\dictentry{global generation patterns}{الگوهای تولید سراسری}
+\dictentry{grounding interval}{بازه‌ی لنگراندازی}
+\dictentry{hard mask}{ماسک سخت}
+\dictentry{incompatible}{نامنطبق}
+\dictentry{incompatible pair}{جفت نامنطبق}
+\dictentry{independent Bernoulli distribution}{توزیع برنولی مستقل}
+\dictentry{independent Bernoulli distributions}{توزیع‌های برنولی مستقل}
+\dictentry{inference network}{شبکه‌ی استنتاج}
+\dictentry{inference networks}{شبکه‌های استنتاج}
+\dictentry{joint energy models}{مدل‌های انرژی مشترک}
+\dictentry{joint training}{آموزش مشترک}
+\dictentry{L1 norm}{نرم ال-یک}
+\dictentry{LM}{مدل زبانی}
+\dictentry{local dependency loss}{زیان وابستگی محلی}
+\dictentry{MLP}{پرسپترون چندلایه}
+\dictentry{multilayer perceptron}{پرسپترون چندلایه}
+\dictentry{NLTK}{جعبه‌ابزار زبان طبیعی}
+\dictentry{non-competitive evaluation}{ارزیابی غیررقابتی}
+\dictentry{operational concept}{مفهوم عملیاتی}
+\dictentry{partial prompt}{پرامپت جزئی}
+\dictentry{partial response}{پاسخ جزئی}
+\dictentry{probability budget}{بودجه‌ی احتمالی}
+\dictentry{prompt-dependency loss}{زیان وابستگی پرامپت}
+\dictentry{proposition}{گزاره}
+\dictentry{propositional concept}{مفهوم گزاره‌ای}
+\dictentry{propositional concepts}{مفاهیم گزاره‌ای}
+\dictentry{propositional dependencies}{وابستگی‌های گزاره‌ای}
+\dictentry{propositional dependency}{وابستگی گزاره‌ای}
+\dictentry{propositions}{گزاره‌ها}
+\dictentry{raw logits}{لوجیت‌های خام}
+\dictentry{response-dependency loss}{زیان وابستگی پاسخ}
+\dictentry{scalar energy}{انرژی اسکالر}
+\dictentry{scoring function}{تابع امتیازدهی}
+\dictentry{semantic blindness}{کوری معنایی}
+\dictentry{SILVER}{چارچوب سیلور}
+\dictentry{soft mask}{ماسک نرم}
+\dictentry{softmax bottleneck}{تنگنای سافت‌مکس}
+\dictentry{spaCy}{کتابخانه‌ی اسپیسی}
+\dictentry{sparsity penalty}{جریمه‌ی خلوتی}
+\dictentry{sparsity regularization}{منظم‌سازی خلوتی}
+\dictentry{step-unrolled}{بازشده به‌صورت گام‌به‌گام}
+\dictentry{SUNDAE}{چارچوب ساندی}
+\dictentry{syntactic boundary}{مرز نحوی}
+\dictentry{syntactic dependency}{وابستگی نحوی}
+\dictentry{syntactic dependency parser}{تجزیه‌گر وابستگی نحوی}
+\dictentry{target indices}{شاخص‌های هدف}
+\dictentry{target mask}{ماسک هدف}
+\dictentry{target masking}{ماسک‌گذاری هدف}
+\dictentry{target propositions}{گزاره‌های هدف}
+\dictentry{token reductionism}{تقلیل‌گرایی توکن‌محور}
+\dictentry{TriSum}{چارچوب ترای‌سام}
+\dictentry{two-phase framework}{چارچوب دوفازی}
+\dictentry{two-phase system}{سیستم دوفازی}
+\dictentry{unnormalized compatibility}{انطباق‌پذیری نرمال‌نشده}
+\dictentry{acceptable error threshold}{آستانه‌ی خطای پذیرفتنی}
+\dictentry{amortized energy landscape}{چشم‌انداز انرژی سرشکن‌شده}
+\dictentry{atomic concept}{مفهوم اتمیک}
+\dictentry{automated prompt compression}{فشرده‌سازی خودکار پرامپت}
+\dictentry{baselines}{خطوط پایه}
+\dictentry{behavioral attribution}{انتساب رفتاری}
+\dictentry{behavioral regime}{قلمرو رفتاری}
+\dictentry{black-box baselines}{خطوط پایه‌ی جعبه‌سیاه}
+\dictentry{break-even point}{نقطه‌ی سربه‌سر}
+\dictentry{calibrated trust}{اعتماد کالیبره‌شده}
+\dictentry{chain-of-thought prompting}{پرامپت‌گذاری زنجیره‌ی افکار}
+\dictentry{clinical studies}{مطالعات بالینی}
+\dictentry{compact surrogate models}{مدل‌های جانشین فشرده}
+\dictentry{compactness principle}{اصل فشردگی}
+\dictentry{computational break-even point}{نقطه‌ی سربه‌سر محاسباتی}
+\dictentry{conditional clauses}{قیود شرطی}
+\dictentry{constant inference time}{زمان‌ثابت استنتاج}
+\dictentry{Construction-Integration theory}{نظریه‌ی ساخت‌وساز-ادغام}
+\dictentry{conversational question answering}{پرسش و پاسخ مکالمه‌ای}
+\dictentry{counterfactual local dependency loss}{زیان وابستگی محلی پادواقعی}
+\dictentry{cross-domain}{بین‌دامنه‌ای}
+\dictentry{cross-domain generalization}{تعمیم‌پذیری بین‌دامنه‌ای}
+\dictentry{Dirichlet}{دیریکله}
+\dictentry{Dirichlet baseline}{خط‌پایه‌ی دیریکله}
+\dictentry{distributional error}{خطای توزیعی}
+\dictentry{distributional shock}{شوک توزیعی}
+\dictentry{epistemic boundary}{مرزبندی معرفت‌شناختی}
+\dictentry{epistemic limits}{محدودیت‌های معرفت‌شناختی}
+\dictentry{evaluation bias}{سوگیری ارزیابی}
+\dictentry{exponential complexity}{پیچیدگی نمایی}
+\dictentry{faithfulness gap}{شکاف وفاداری}
+\dictentry{formal natural language inference}{استلزام منطقی صوری}
+\dictentry{Frege's context principle}{اصل بافتار فرگه}
+\dictentry{Goodhart effect}{اثر گودهارت}
+\dictentry{Gradient SHAP}{گرادیان شاپ}
+\dictentry{gray-box baselines}{خطوط پایه‌ی جعبه‌خاکستری}
+\dictentry{hierarchical attention}{توجه سلسله‌مراتبی}
+\dictentry{hierarchical attention mechanism}{مکانیزم توجه سلسله‌مراتبی}
+\dictentry{hierarchical attention mechanisms}{مکانیزم‌های توجه سلسله‌مراتبی}
+\dictentry{human-in-the-loop}{انسان در حلقه}
+\dictentry{human-in-the-loop evaluation}{ارزیابی با انسان در حلقه}
+\dictentry{InfoNCE loss}{زیان تخمین تقابلی نویز اطلاعاتی}
+\dictentry{input $\times$ gradient}{ورودی ضرب‌در گرادیان}
+\dictentry{interactive evaluations}{ارزیابی‌های تعاملی}
+\dictentry{internal parametric knowledge}{دانش پارامتریک درونی}
+\dictentry{interventional pipeline}{خط‌لوله‌ی مداخله‌ای}
+\dictentry{intra-sentence phrases}{عبارات درون‌جمله‌ای}
+\dictentry{introspection}{درون‌نگری}
+\dictentry{joint energy landscape}{چشم‌انداز انرژی مشترک}
+\dictentry{Kintsch's Construction-Integration theory}{نظریه‌ی ساخت‌وساز-ادغام کینتش}
+\dictentry{L1 sparsity penalty}{جریمه‌ی خلوتی نُرم ال-یک}
+\dictentry{language oracle panel}{هیئت اوراکل‌های زبانی}
+\dictentry{language oracles}{اوراکل‌های زبانی}
+\dictentry{marginal cost}{هزینه‌ی حاشیه‌ای}
+\dictentry{maximum sentence cosine similarity}{شباهت کسینوسی بیشینه‌ی جملات}
+\dictentry{mechanistic circuits}{مدارهای مکانیکی}
+\dictentry{multidomain}{چنددامنه‌ای}
+\dictentry{multidomain corpora}{پیکره‌های چنددامنه‌ای}
+\dictentry{multitask corpora}{پیکره‌های چندوظیفه‌ای}
+\dictentry{natural language entailment}{استلزام زبان طبیعی}
+\dictentry{nDCG}{بهره‌ی تجمعی تنزیل‌یافته‌ی نرمال‌شده}
+\dictentry{necessity and compactness principle}{اصل ضرورت و فشردگی}
+\dictentry{normalized token log-probabilities}{لگاریتم احتمالات نرمال‌شده‌ی توکن‌ها}
+\dictentry{operational environments}{محیط‌های عملیاتی}
+\dictentry{operational unit of analysis}{واحد عملیاتی تحلیل}
+\dictentry{out-of-distribution error}{خطای خارج از توزیع}
+\dictentry{panel of language oracles}{هیئت اوراکل‌های زبانی}
+\dictentry{parametric capacity}{ظرفیت پارامتری}
+\dictentry{parametric knowledge}{دانش پارامتریک}
+\dictentry{prompt compression}{فشرده‌سازی پرامپت}
+\dictentry{rank alignment}{هم‌راستایی رتبه‌ای}
+\dictentry{raw attention}{توجه خام}
+\dictentry{real-time systems}{سیستم‌های بلادرنگ}
+\dictentry{reasoning chain}{زنجیره‌ی استدلال}
+\dictentry{resolution bounds}{کران‌های تفکیک‌پذیری}
+\dictentry{self-explaining}{خودتوضیح}
+\dictentry{self-explaining model}{مدل خودتوضیح}
+\dictentry{self-explaining models}{مدل‌های خودتوضیح}
+\dictentry{self-explanation}{خودتوضیحی}
+\dictentry{semantic divergence metric}{سنجه‌ی واگرایی معنایی}
+\dictentry{semantic resolution}{تفکیک‌پذیری معنایی}
+\dictentry{semantically segmented}{قطعه‌بندی‌شده‌ی معنایی}
+\dictentry{sentence-level LIME}{لایم در سطح جمله}
+\dictentry{sentence-level resolution bounds}{کران‌های تفکیک‌پذیری در سطح جمله}
+\dictentry{Sentence-LOO}{روش حذفی در سطح جمله}
+\dictentry{single-instance tasks}{وظایف تک‌نمونه‌ای}
+\dictentry{sparse Dirichlet random baseline}{خط‌پایه‌ی تصادفی خلوت دیریکله}
+\dictentry{state space}{فضای حالات}
+\dictentry{string matching}{تطبیق رشته‌ای}
+\dictentry{sufficiency principle}{اصل کفایت}
+\dictentry{textual compatibility patterns}{الگوهای انطباق‌پذیری متنی}
+\dictentry{token log-probabilities}{لگاریتم احتمالات توکن‌ها}
+\dictentry{unnormalized compatibility evaluator}{ارزیاب انطباق‌پذیری نرمال‌نشده}
+\dictentry{vision-language}{بینایی-زبانی}
+\dictentry{vision-language model}{مدل بینایی-زبانی}
+\dictentry{vision-language models}{مدل‌های بینایی-زبانی}
+\dictentry{white-box baselines}{خطوط پایه‌ی جعبه‌سفید}
+\dictentry{WikiBio}{مجموعه‌داده‌ی ویکی‌بیو}
+\dictentry{Human ChatGPT Comparison Corpus}{پیکره‌ی مقایسه‌ای انسان و چت‌جی‌پی‌تی}
+\dictentry{ESM}{حاشیه‌ی تفکیک انرژی}
+\dictentry{signal-to-noise ratio}{نسبت سیگنال به نویز}
+\dictentry{citation signal-to-noise ratio}{نسبت سیگنال به نویز در استناد}
+\dictentry{SNR}{نسبت سیگنال به نویز}
+\dictentry{mean reciprocal rank}{میانگین رتبه‌ی متقابل}
+\dictentry{MRR}{میانگین رتبه‌ی متقابل}
+\dictentry{AIR}{نسبت تأثیر آرتیفکت}
+\dictentry{false discovery rate}{نرخ کشف کاذب}
+\dictentry{FDR}{نرخ کشف کاذب}
+\dictentry{false discovery rate at one}{نرخ کشف کاذب در رتبه‌ی نخست}
+\dictentry{FDR@1}{نرخ کشف کاذب در رتبه‌ی نخست}
+\dictentry{pairwise accuracy}{دقت زوجی}
+\dictentry{soft top-1 accuracy}{دقت برتر نرم}
+\dictentry{soft accuracy}{دقت نرم}
+\dictentry{TVD}{فاصله‌ی تغییرات کل}
+\dictentry{discounted cumulative gain}{بهره‌ی تجمعی تنزیل‌یافته}
+\dictentry{DCG}{بهره‌ی تجمعی تنزیل‌یافته}
+\dictentry{ideal discounted cumulative gain}{بهره‌ی تجمعی تنزیل‌یافته‌ی ایده‌آل}
+\dictentry{IDCG}{بهره‌ی تجمعی تنزیل‌یافته‌ی ایده‌آل}
+\dictentry{DCG@3}{بهره‌ی تجمعی تنزیل‌یافته در سطح ۳}
+\dictentry{nDCG@3}{بهره‌ی تجمعی تنزیل‌یافته‌ی نرمال‌شده در سطح ۳}
+\dictentry{IDCG@3}{بهره‌ی تجمعی تنزیل‌یافته‌ی ایده‌آل در سطح ۳}
+\dictentry{BERTScore-F1}{امتیاز اف‌یک برت‌اسکور}
+\dictentry{Gemma}{مدل جما}
+\dictentry{Mistral}{مدل میسترال}
+\dictentry{Gemini}{مدل جمینای}
+\dictentry{GQA}{توجه پرسمان گروهی}
+\dictentry{GeGLU}{تابع فعال‌سازی گگلو}
+\dictentry{MoE}{ترکیب خبرگان}
+\dictentry{Dirichlet distribution}{توزیع دیریکله}
+\dictentry{Dirichlet random baseline}{خط‌پایه‌ی تصادفی دیریکله}
+\dictentry{random baseline}{خط‌پایه‌ی تصادفی}
+\dictentry{string matching baseline}{خط‌پایه‌ی تطبیق رشته‌ای}
+\dictentry{Sentence Leave-One-Out}{روش حذفی در سطح جمله}
+\dictentry{Kernel SHAP}{کرنل شاپ}
+\dictentry{BiLSTM}{شبکه‌ی حافظه‌ی کوتاه‌مدت طولانی دوسویه}
+\dictentry{unidirectional transformer}{ترنسفورمر یک‌سویه}
+\dictentry{bidirectional transformer}{ترنسفورمر دوسویه}
+\dictentry{bag-of-words}{کیسه‌ی کلمات}
+\dictentry{CoQA}{مجموعه‌داده‌ی کوکا}
+\dictentry{HotpotQA}{مجموعه‌داده‌ی هات‌پات‌کیواِی}
+\dictentry{TellMeWhy}{مجموعه‌داده‌ی تل‌می‌وای}
+\dictentry{WikiText}{مجموعه‌داده‌ی ویکی‌تکست}
+\dictentry{CCNews}{مجموعه‌داده‌ی سی‌سی‌نیوز}
+\dictentry{Books}{مجموعه‌داده‌ی بوکز}
+\dictentry{infobox}{جعبه‌ی اطلاعات}
+\dictentry{infoboxes}{جعبه‌های اطلاعات}
+\dictentry{pseudo-ground-truth}{شبه‌حقیقت پایه}
+\dictentry{relative energy impact}{تأثیر انرژی نسبی}
+\dictentry{forced decoding}{رمزگشایی اجباری}
+\dictentry{distractor}{داده‌ی انحرافی}
+\dictentry{distractor sentence}{جمله‌ی انحرافی}
+\dictentry{target proposition}{گزاره‌ی هدف}
+\dictentry{target sentence}{جمله‌ی هدف}
+\dictentry{fine-grained}{ریزدانه}
+\dictentry{interpretability illusion}{توهم تفسیرپذیری}
+\dictentry{circular reasoning}{استدلال دُوری}
+\dictentry{spurious correlation}{همبستگی کاذب}
+\dictentry{spurious correlations}{همبستگی‌های کاذب}
+\dictentry{token-to-sentence aggregation}{تجمیع از سطح توکن به سطح جمله}
+\dictentry{confusion matrix}{ماتریس درهم‌ریختگی}
+\dictentry{confusion matrices}{ماتریس‌های درهم‌ریختگی}
+\dictentry{open-source}{متن‌باز}
+\dictentry{open-source model}{مدل متن‌باز}
+\dictentry{open-source models}{مدل‌های متن‌باز}
+\dictentry{closed-source}{مسدود}
+\dictentry{closed-source system}{سیستم مسدود}
+\dictentry{dense model}{مدل متراکم}
+\dictentry{dense models}{مدل‌های متراکم}
+\dictentry{sliding window}{پنجره‌ی لغزان}
+\dictentry{router network}{شبکه‌ی مسیریاب}
+\dictentry{relative energy}{انرژی نسبی}
+\dictentry{separation margin}{حاشیه‌ی تفکیک}
+\dictentry{global fidelity}{وفاداری سراسری}
+\dictentry{local dependency}{وابستگی محلی}
+\dictentry{dual loss}{زیان دوگانه}
+\dictentry{dual energy loss}{زیان دوگانه‌ی انرژی}
+\dictentry{placeholder embedding}{تعبیه‌ی جای‌نگه‌دار}
+\dictentry{learnable placeholder}{جای‌نگه‌دار قابل‌یادگیری}
+\dictentry{soft masks}{ماسک‌های نرم}
+\dictentry{constrained reasoning}{استدلال مقید}
+\dictentry{data-constrained reasoning}{استدلال مقید مبتنی بر داده}
+\dictentry{structured data}{داده‌های ساختاریافته}
+\dictentry{information density}{چگالی اطلاعاتی}
+\dictentry{structural ambiguity}{ابهام ساختاری}
+\dictentry{query cost}{هزینه‌ی استعلام}
+\dictentry{inference cost}{هزینه‌ی استنتاج}
+\dictentry{amortization}{سرشکن‌سازی}
+\dictentry{amortized cost}{هزینه‌ی سرشکن‌شده}
+\dictentry{token-level}{در سطح توکن}
+\dictentry{sentence-level attribution}{انتساب در سطح جمله}
+\dictentry{sentence-level explanation}{تفسیر در سطح جمله}
+\dictentry{sentence-level interpretability}{تفسیرپذیری در سطح جمله}
+\dictentry{cross-attention block}{بلوک توجه متقاطع}
+\dictentry{self-attention block}{بلوک خودتوجهی}
+\dictentry{negative sampler}{نمونه‌بردار منفی}
+\dictentry{negative samplers}{نمونه‌بردارهای منفی}
+\dictentry{principal component analysis}{تحلیل مؤلفه‌های اصلی}
+\dictentry{singular value decomposition}{تجزیه‌ی مقادیر منفرد}
+\dictentry{binary cross-entropy}{آنتروپی متقاطع دودویی}
+\dictentry{deep neural network}{شبکه‌ی عصبی عمیق}
+\dictentry{bidirectional long short-term memory}{شبکه‌ی حافظه‌ی کوتاه‌مدت طولانی دوسویه}
+\dictentry{gradient-weighted class activation mapping}{نگاشت فعال‌سازی کلاس مبتنی بر گرادیان}
+\dictentry{energy-based surrogate for concept-level interpretation}{جانشین مبتنی بر انرژی برای تفسیر در سطح مفهوم}
+\dictentry{structured output interpreter}{مفسر خروجی ساختاریافته} 
+\dictentry{instance-wise variable selection}{انتخاب متغیر در سطح نمونه}
+\dictentry{Natural Language Toolkit}{جعبه‌ابزار زبان طبیعی}
+\dictentry{class-based term frequency-inverse document frequency}{روش تی‌اف-آی‌دی‌اف دسته‌ای}
+\dictentry{rectified linear unit}{تابع فعال‌سازی رلو}
+\dictentry{Gaussian error linear unit}{تابع فعال‌سازی ژلو}
+\dictentry{GELU gated linear unit}{تابع فعال‌سازی گگلو}
+\dictentry{Swish gated linear unit}{تابع فعال‌سازی سوئی‌گلو}
+\dictentry{residual network}{شبکه‌ی رزنت}
+\dictentry{F1 score}{امتیاز اف‌یک}
+\dictentry{bilingual evaluation understudy}{معیار بلو}
+\dictentry{Recall-Oriented Understudy for Gisting Evaluation}{معیار روژ}
+\dictentry{Bidirectional Encoder Representations from Transformers}{مدل برت}
+\dictentry{generative pre-trained transformer}{مدل جی‌پی‌تی}
+\dictentry{contrastive language-image pre-training}{مدل کلیپ}
+\dictentry{discounted cumulative gain at three}{بهره‌ی تجمعی تنزیل‌یافته در سطح ۳}
+\dictentry{normalized discounted cumulative gain at three}{بهره‌ی تجمعی تنزیل‌یافته‌ی نرمال‌شده در سطح ۳}
+\dictentry{ideal discounted cumulative gain at three}{بهره‌ی تجمعی تنزیل‌یافته‌ی ایده‌آل در سطح ۳}

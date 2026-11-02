@@ -1,0 +1,51 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  BIBLIOGRAPHY CONFIGURATION & LOADER (bibliography/bibliography.tex)
+% ==============================================================================
+%
+%  This file sets up the bibliography layout, citation environment, and data sources.
+%
+% ------------------------------------------------------------------------------
+%  HOW IT WORKS:
+% ------------------------------------------------------------------------------
+%  - BibTeX Style: Uses `bibliography/unsrtabbrv.bst`, an enhanced unsrt style
+%    modernized to turn paper titles into clickable hyperlinks when `doi` or `url`
+%    fields are present, and display other fields selectively based on standards. 
+%  - Data Sources: Points to `bibliography/refs.bib` (main citations) and
+%    `bibliography/full.bib` (extended/secondary references).
+%  - Uncited references: Uncomment `\nocite{*}` if you wish to display all entries
+%    in the `.bib` files regardless of whether they were cited with `\cite{...}`.
+%  - Spacing: Configured with compact, professional inter-item spacing.
+% ==============================================================================
+
+\clearpage
+{\phantomsection}
+\addcontentsline{toc}{chapter}{مراجع}
+
+\begin{latin}
+\small
+\linespread{1.15}\selectfont
+\setlength{\parskip}{0pt}
+
+% Compact, elegant academic bibliography spacing
+\let\oldthebibliography\thebibliography{}
+\let\endoldthebibliography\endthebibliography{}
+\renewenvironment{thebibliography}[1]{%
+  \begin{oldthebibliography}{#1}%
+    \small
+    \linespread{1.15}\selectfont
+    \setlength{\parskip}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\itemsep}{0.25em plus 0.05em minus 0.05em}%
+}{%
+  \end{oldthebibliography}%
+}
+
+\bibliographystyle{bibliography/unsrtabbrv}
+
+% Uncomment next line to include uncited references in the output:
+% \nocite{*}
+
+\bibliography{bibliography/refs,bibliography/full}
+ 
+\end{latin}

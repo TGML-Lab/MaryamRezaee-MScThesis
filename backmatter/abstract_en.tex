@@ -1,0 +1,30 @@
+% !TEX root = ../thesis.tex
+% ==============================================================================
+%  ENGLISH ABSTRACT & KEYWORDS (backmatter/abstract_en.tex)
+% ==============================================================================
+%
+%  This file contains the English abstract and keywords.
+%
+% ------------------------------------------------------------------------------
+%  HOW TO USE & CUSTOMIZE:
+% ------------------------------------------------------------------------------
+%  - Wrap your English abstract inside \begin{englishabstract} ... \end{englishabstract}.
+%  - Add your keywords using \thesiskeywordsen{Keyword 1, Keyword 2, ...}.
+%  - Vertical spacing and line stretch can be fine-tuned in `styles/custom.tex`
+%    using \setlength{\thesisabstractenbeforespace}{...} and
+%    \renewcommand{\thesisabstractenstretch}{...}.
+%  - To toggle this page in the thesis:
+%    Toggle `\include{backmatter/abstract_en}` in `thesis.tex`.
+% ==============================================================================
+
+\begin{englishabstract}
+The widespread deployment of Large Language Models via closed application programming interfaces (APIs) in high-stakes domains has made interpretability indispensable. However, prevailing interpretability paradigms exhibit fundamental limitations: intrinsic approaches impose structural constraints that restrict model capacity and cannot be applied to frozen pre-trained systems; post-hoc white-box methods rely on internal information concealed behind commercial APIs; and post-hoc black-box techniques either suffer from motivated reasoning in self-explanations or, in token-level perturbation schemes, encounter grammatical breakdown, out-of-distribution errors, insensitivity to synonymous phrasing, and exponential query costs. Furthermore, the inherent complexity of generative models has left feature attribution under a strictly black-box regime---operating solely on raw text---largely unexplored.
+
+To overcome these limitations, this thesis elevates the unit of analysis from tokens to complete sentences, preserving grammatical integrity during feature ablation and producing human-readable explanations. In addition, an Energy-Based Model (EBM) serves as a surrogate evaluator, scoring the compatibility between prompt and response without requiring intractable normalizing functions. To train this energy landscape without ground-truth attribution supervision, a dual contrastive sampling strategy is developed that couples global fidelity (contrasting target model outputs against human and external model texts) with local counterfactual dependencies (structured partial masking of both prompts and responses).
+
+Building on these principles, we introduce ESCI (Energy-Based Surrogate for Concept-Level Interpretation), a post-hoc framework based on amortized inference. Once the surrogate EBM captures prompt-response compatibility patterns, its energy landscape guides a lightweight interpreter network. Conditioned on the prompt, response, and specified target sentences, the interpreter optimizes an energy gap objective to establish an effective balance between sufficiency and necessity. At test time, the interpreter functions independently, estimating prompt sentence attributions in constant $\mathcal{O}(1)$ time through a single forward pass without further queries to the target model.
+
+Empirical evaluations demonstrate that the EBM transcends superficial matching to capture non-trivial generation patterns. Moreover, interventional evaluations based on logical entailment, semantic similarity, and token probabilities indicate that ESCI achieves competitive semantic faithfulness compared to computationally demanding perturbation methods and privileged baselines. By shifting the computational burden to the pre-training phase, this research provides a scalable framework for assessing black-box generative models.
+
+\thesiskeywordsen{Black-box Large Language Models, Post-hoc Interpretability, Sentence-level Feature Attribution, Energy-Based Models, Amortized Inference, Generative AI Auditing.}
+\end{englishabstract}

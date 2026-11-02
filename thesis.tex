@@ -1,0 +1,176 @@
+% !LW recipe = latexmk (xelatex)
+% ==============================================================================
+%  MASTER THESIS DOCUMENT & TEMPLATE ENTRY POINT (thesis.tex)
+% ==============================================================================
+%
+%  A Modern LaTeX Template for Typesetting Persian Theses & Dissertations
+%  Sharif University of Technology (SUT) Format
+%
+%  Originally Authored by: Hamid Zarrabi-Zadeh (https://github.com/zarrabi/thesis-template)
+%  Contributors: Ehsan Emamjomeh-Zadeh, Omid Gheibi
+%  Upgrades & Modernization by: Maryam Rezaee (https://maryamrezaee.me)
+%  License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+%
+% ------------------------------------------------------------------------------
+%  HOW TO USE THIS TEMPLATE (راهنمای استفاده):
+% ------------------------------------------------------------------------------
+%  1. Configure your thesis metadata:
+%     Edit `frontmatter/info.tex` to set your university, department, degree,
+%     thesis title, author name, supervisor, advisors, and examiners.
+%
+%  2. Configure personal macros and layout overrides:
+%     Edit `styles/custom.tex` to define custom math operators, colors,
+%     callout boxes, or spacing overrides. Do NOT modify `styles/common.tex`.
+%
+%  3. Write your chapters:
+%     Place chapter source files in `chapters/` (e.g., `chapters/chapter1_...`).
+%     Include them below in Section 4.
+%
+%  4. Maintain your technical glossary:
+%     Add term pairs in `backmatter/words.tex`. The sorting and grouping
+%     into Persian-English and English-Persian dictionaries is fully automated.
+%
+%  5. Administrative Signatures & Signed PDF Integration:
+%     Export standalone approval/declaration forms via `scripts/export_front_pages.py`.
+%     Once signed by professors, place the signed PDFs in `frontmatter/` and switch
+%     from `\include{frontmatter/...}` to `\includepdfpages{frontmatter/...pdf}` in Section 2.
+%
+% ------------------------------------------------------------------------------
+%  COMPILATION INSTRUCTIONS:
+% ------------------------------------------------------------------------------
+%  - TeX Engine: XeLaTeX (Required for XePersian and bidirectional fonts).
+%  - Recommended tool: `latexmk` via VS Code LaTeX Workshop (recipe: latexmk-xelatex).
+%  - Terminal command:
+%        latexmk -xelatex -synctex=1 -interaction=nonstopmode thesis.tex
+% ==============================================================================
+
+% Document Class:
+% Use 'oneside' for standard digital submission or one-sided printing.
+% Change to 'twoside' if your faculty requires double-sided hardbound binding.
+\documentclass[oneside,a4paper,12pt]{book}
+
+% ------------------------------------------------------------------------------
+% Preamble & Style Modules
+% ------------------------------------------------------------------------------
+\input{styles/common.tex}  % Core engine (packages, fonts, geometry, environments)
+\input{styles/custom.tex}  % User configurations, math operators, custom boxes
+
+\begin{document}
+
+
+% ==============================================================================
+% 1. FONT SELECTION
+% ==============================================================================
+% Default font: XB Niloofar for Persian and Adobe Caslon Pro for Latin text.
+% Uncomment the following line to switch to the official Sharif Font:
+%\shariffont
+
+
+% ==============================================================================
+% 2. FRONT MATTER (صفحات ابتدایی)
+% ==============================================================================
+% Disable hyperref page anchors in unnumbered front pages to eliminate
+% duplicate page destination collisions (e.g., Object @page.1 already defined).
+\hypersetup{pageanchor=false}
+
+% Load institutional and thesis metadata
+\include{frontmatter/info}
+
+% Persian Title Page (صفحه عنوان فارسی)
+\pagestyle{empty}
+\include{frontmatter/title}
+
+% --- Administrative & Dedication Pages (صفحات تصویب‌نامه، اظهارنامه و تقدیم) ---
+% Toggle any of the following pages by uncommenting or commenting them:
+% \include{frontmatter/besmellah}       % صفحه بسم الله (Dedication / In the Name of God)
+
+% ------------------------------------------------------------------------------
+% SIGNED FORMS MANUAL TOGGLE GUIDE (راهنمای جایگزینی فرم‌های امضاشده):
+% ------------------------------------------------------------------------------
+%  - Pre-defense (پیش از دفاع):
+%      Keep the `.tex` lines active. Forms are generated dynamically from metadata
+%      configured in `frontmatter/info.tex`.
+%  - Post-defense (پس از دفاع و دریافت امضاها):
+%      1. Place the signed & scanned PDFs in `frontmatter/` (e.g.,
+%         `frontmatter/signatures.pdf` and `frontmatter/declaration.pdf`).
+%      2. Comment out the LaTeX `\include{frontmatter/...}` line.
+%      3. Uncomment the corresponding `\includepdfpages{frontmatter/...pdf}` line.
+%      The helper macro `\includepdfpages` supports single and multi-page PDFs
+%      seamlessly with exact A4 dimensions and zero margins.
+% ------------------------------------------------------------------------------
+
+% 1. Defense Committee Approval / Signatures (صفحه تصویب‌نامه هیئت داوران)
+% \include{frontmatter/signatures}                     % LaTeX source (pre-defense)
+\includepdfpages{frontmatter/signatures.pdf}        % Signed & scanned PDF (post-defense)
+
+% 2. Academic Integrity Declaration (صفحه اظهارنامه اصالت متن و محتوا)
+% \include{frontmatter/declaration}                    % LaTeX source (pre-defense)
+\includepdfpages{frontmatter/declaration.pdf}       % Signed & scanned PDF (post-defense)
+
+% --- Numbered Frontmatter (Tartibi Numerals: آ، ب، ج، ...) ---
+\pagestyle{plain}
+\pagenumbering{tartibi}
+\hypersetup{pageanchor=true}
+
+\include{frontmatter/acknowledgments}  % صفحه سپاس (Acknowledgments)
+\include{frontmatter/abstract}         % صفحه چکیده فارسی (Persian Abstract & Keywords)
+
+
+% ==============================================================================
+% 3. TABLES OF CONTENTS & LISTS (فهرست‌ها)
+% ==============================================================================
+\tableofcontents \newpage
+\listoftables \newpage
+\listoffigures \newpage
+
+
+% ==============================================================================
+% 4. MAIN BODY CHAPTERS (فصول پایان‌نامه)
+% ==============================================================================
+% Reset page numbering to standard Arabic numerals (۱، ۲، ۳، ...) for main content.
+\pagenumbering{arabic}
+
+\include{chapters/chapter1_introduction}
+\include{chapters/chapter2_preliminaries}
+\include{chapters/chapter3_literature}
+\include{chapters/chapter4_methodology}
+\include{chapters/chapter5_experiments}
+\include{chapters/chapter6_conclusions}
+
+
+% ==============================================================================
+% 5. BIBLIOGRAPHY & GLOSSARIES (مراجع و واژه‌نامه‌ها)
+% ==============================================================================
+% Academic bibliography with hyperlinked DOI/URLs
+\include{bibliography/bibliography}
+
+% Dependency tracking for LaTeX Workshop & compiler dependency graphs
+\setbox0=\vbox{\input{backmatter/words.tex}}
+
+% Persian-to-English and English-to-Persian Dictionaries
+\include{backmatter/dictionary_fa2en}
+\include{backmatter/dictionary_en2fa}
+
+
+% ==============================================================================
+% 6. APPENDICES (پیوست‌ها)
+% ==============================================================================
+\begin{appendix}
+\include{appendices/appendix}
+\end{appendix}
+
+
+% ==============================================================================
+% 7. BACK MATTER: ENGLISH PAGES (صفحات پایانی به زبان انگلیسی)
+% ==============================================================================
+\pagestyle{empty}
+\hypersetup{pageanchor=false}
+
+\include{backmatter/abstract_en}  % English Abstract & Keywords
+\include{backmatter/title_en}     % English Title Page (Reverse Cover)
+
+
+% ==============================================================================
+% End of Document
+% ==============================================================================
+\end{document}
