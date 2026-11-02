@@ -3,6 +3,8 @@
 # Interpretability in Generative Models
 ### Investigating the Mechanisms Behind Output Generation in Large Language Models
 
+<br/>
+
 **A Master's Thesis in Computer Science**  
 **Department of Mathematical Sciences, Sharif University of Technology**  
 **[TGML Lab (Trustworthy and Generative Machine Learning Lab)](https://github.com/TGML-Lab)**
@@ -12,7 +14,6 @@
 [![Thesis](https://img.shields.io/badge/Degree-M.Sc._Computer_Science-1e3a8a.svg?style=flat-square)](#academic-metadata)
 [![Institution](https://img.shields.io/badge/Institution-Sharif_University_of_Technology-0284c7.svg?style=flat-square)](#academic-metadata)
 [![Engine](https://img.shields.io/badge/LaTeX-XeLaTeX_%2B_XePersian-4338ca.svg?style=flat-square)](#compilation--reproduction)
-[![Framework](https://img.shields.io/badge/Methodology-ESCI_Framework-059669.svg?style=flat-square)](#methodology-the-esci-framework)
 [![Lab](https://img.shields.io/badge/Lab-TGML--Lab-d97706.svg?style=flat-square)](https://github.com/TGML-Lab)
 
 <br/>
