@@ -78,11 +78,11 @@ Classical black-box attribution algorithms (e.g., standard LIME and SHAP adaptat
 Grounded in **Frege's Context Principle** (words only hold meaning in complete propositions) and **Kintsch's Construction-Integration Cognitive Model** (human cognition processes text via networked propositional representations), this thesis elevates the atomic feature unit from tokens to syntactically validated sentences $\mathcal{S} \subset \mathcal{V}^*$:
 - **Prompt Sentences:** $\mathbf{x} = (x_1, x_2, \dots, x_N) \in \mathcal{S}^N$
 - **Response Sentences:** $\mathbf{y} = (y_1, y_2, \dots, y_M) \in \mathcal{S}^M$
-- **Target Output Subset:** $\mathbf{y}_T = {(y_j)}_{j \in T} \subseteq \mathbf{y}$ where $T \subseteq \{1, \dots, M\}$
+- **Target Output Subset:** $\mathbf{y}\_T = {(y_j)}_{j \in T} \subseteq \mathbf{y}$ where $T \subseteq \{1, \dots, M\}$
 - **Attribution Mask:** $\mathbf{m} \in \{0, 1\}^N$, extracting selected antecedent sentences $\mathbf{x}_S = \mathbf{x} \odot \mathbf{m}$
 
 The formal optimization objective seeks the most parsimonious antecedent subset that guarantees output reproduction:
-$$\mathbf{m}^* = \arg\min_{\mathbf{m} \in \{0, 1\}^N} \|\mathbf{m}\|_0 \quad \text{subject to} \quad \mathcal{D}\big(f_\theta(\mathbf{x} \odot \mathbf{m}), \mathbf{y}_T\big) \le \epsilon$$
+$$\mathbf{m}^* = \arg\min_{\mathbf{m} \in \{0, 1\}^N} \|\mathbf{m}\|\_0 \quad \text{subject to} \quad \mathcal{D}\big(f_\theta(\mathbf{x} \odot \mathbf{m}), \mathbf{y}_T\big) \le \epsilon$$
 where $\|\cdot\|_0$ enforces **necessity/sparsity**, and divergence metric $\mathcal{D}$ enforces **sufficiency**.
 
 ---
@@ -120,7 +120,7 @@ Rather than training a generative surrogate prone to autoregressive hallucinatio
 </div>
 
 The EBM is optimized via an InfoNCE dual-contrastive loss:
-$$\mathcal{L}_{\text{EBM}} = \lambda_{\text{fid}} \mathcal{L}_{\text{fidelity}} + \lambda_{\text{dep}} \mathcal{L}_{\text{dep}}$$
+$$\mathcal{L}\_{\text{EBM}} = \lambda_{\text{fid}} \mathcal{L}\_{\text{fidelity}} + \lambda_{\text{dep}} \mathcal{L}_{\text{dep}}$$
 - **Global Fidelity ($\mathcal{L}_{\text{fidelity}}$):** Contrasts true model generations against negative samples sourced from human responses and foreign language models.
 - **Local Counterfactual Dependency ($\mathcal{L}_{\text{dep}}$):** Employs structured sentence-level masking on both prompt and response to enforce fine-grained semantic sensitivity.
 
@@ -133,7 +133,7 @@ Once trained, the EBM landscape guides a dedicated interpreter network $\mathcal
 </div>
 
 The interpreter is trained by maximizing the **energy gap** between masked and unmasked prompts, penalized by an $L_1$ sparsity regularizer:
-$$\mathcal{L}_{\text{interpreter}}(\alpha) = -\mathbb{E}\left[ \mathcal{E}_{\text{LM}}\big(\mathbf{x} \odot (\mathbf{1} - \hat{\mathbf{m}}), \mathbf{y}_T; \theta\big) - \mathcal{E}_{\text{LM}}\big(\mathbf{x} \odot \hat{\mathbf{m}}, \mathbf{y}_T; \theta\big) \right] + \lambda_{\text{sparse}} \|\hat{\mathbf{m}}\|_1$$
+$$\mathcal{L}\_{\text{interpreter}}(\alpha) = -\mathbb{E}\left[ \mathcal{E}\_{\text{LM}}\big(\mathbf{x} \odot (\mathbf{1} - \hat{\mathbf{m}}), \mathbf{y}\_T; \theta\big) - \mathcal{E}\_{\text{LM}}\big(\mathbf{x} \odot \hat{\mathbf{m}}, \mathbf{y}\_T; \theta\big) \right] + \lambda_{\text{sparse}} \|\hat{\mathbf{m}}\|_1$$
 
 At inference time, attribution is produced in **constant $\mathcal{O}(1)$ time** with a single forward pass through $\mathcal{IN}$—requiring **zero additional queries** to the target black-box LLM.
 
@@ -149,7 +149,7 @@ The framework was evaluated across heterogeneous model architectures, task envir
   - *Gray-Box & White-Box:* Transformer Raw Attention, Attention Rollout, Gradient $\times$ Input, Grad-SHAP, Sentence Leave-One-Out (Sentence-LOO), and LIME-GrayBox.
 
 ### 1. Interventional Faithfulness Evaluation
-Faithfulness was assessed using a tripartite interventional protocol measuring **Sufficiency** ($\mathcal{S}$), **Comprehensiveness** ($\mathcal{C}$), and the net **Faithfulness Gap** ($\Delta\mathcal{F} = \mathcal{S} - \mathcal{C}$) across three metrics: Natural Language Inference entailment ($\mathcal{F}_{\text{NLI}}$), maximum cosine sentence similarity ($\mathcal{F}_{\text{cosine}}$), and normalized token log-probabilities ($\mathcal{F}_{\text{logprob}}$):
+Faithfulness was assessed using a tripartite interventional protocol measuring **Sufficiency** ($\mathcal{S}$), **Comprehensiveness** ($\mathcal{C}$), and the net **Faithfulness Gap** ($\Delta\mathcal{F} = \mathcal{S} - \mathcal{C}$) across three metrics: Natural Language Inference entailment ($\mathcal{F}\_{\text{NLI}}$), maximum cosine sentence similarity ($\mathcal{F}\_{\text{cosine}}$), and normalized token log-probabilities ($\mathcal{F}_{\text{logprob}}$):
 
 | Target Model | Method | Access Level | Faithfulness Gap ($\Delta\mathcal{F}_{\text{NLI}}$) $\uparrow$ | Sufficiency ($\mathcal{S}_{\text{NLI}}$) $\uparrow$ | Comprehensiveness ($\mathcal{C}_{\text{NLI}}$) $\downarrow$ |
 | :--- | :--- | :---: | :---: | :---: | :---: |
