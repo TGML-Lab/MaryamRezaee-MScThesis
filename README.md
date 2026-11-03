@@ -26,18 +26,19 @@
 
 ## Academic Metadata
 
-| Item | Details |
-| :--- | :--- |
-| **Title** | *Interpretability in Generative Models: Investigating the Mechanisms Behind Output Generation in Large Language Models* |
-| **Persian Title** | تفسیرپذیری در مدل‌های مولد: بررسی سازوکارهای تولید خروجی در مدل‌های زبانی بزرگ |
-| **Author** | **Maryam Rezaee** ([Website](https://maryamrezaee.me) / [GitHub](https://github.com/msmrexe)) |
-| **Supervisor** | **Dr. S. Fatemeh Seyyedsalehi** (Department of Mathematical Sciences, Sharif University of Technology) |
-| **Internal Examiner** | **Dr. Javad Ebrahimi** (Department of Mathematical Sciences, Sharif University of Technology) |
-| **External Examiner** | **Dr. Mostafa Tavassolipour** (School of Electrical and Computer Engineering, University of Tehran) |
-| **Degree & Major** | Master of Science (M.Sc.) in Computer Science |
-| **Institution** | Department of Mathematical Sciences, Sharif University of Technology, Tehran, Iran |
-| **Research Lab** | **TGML Lab** ([Trustworthy and Generative Machine Learning Lab](https://github.com/TGML-Lab)) |
-| **Defense Date** | 5 August 2026 (14 Mordad 1405) |
+| Item                  | Details                                                                                                                 |
+| :---                  | :---                                                                                                                    |
+| **Title**             | *Interpretability in Generative Models: Investigating the Mechanisms Behind Output Generation in Large Language Models* |
+| **Persian Title**     | تفسیرپذیری در مدل‌های مولد: بررسی سازوکارهای تولید خروجی در مدل‌های زبانی بزرگ                                      |
+| **Author**            | **Maryam Rezaee** ([Website](https://maryamrezaee.me) / [GitHub](https://github.com/msmrexe))                           |
+| **Supervisor**        | **Dr. S. Fatemeh Seyyedsalehi** (Department of Mathematical Sciences, Sharif University of Technology)                  |
+| **Internal Examiner** | **Dr. Javad Ebrahimi** (Department of Mathematical Sciences, Sharif University of Technology)                           |
+| **External Examiner** | **Dr. Mostafa Tavassolipour** (School of Electrical and Computer Engineering, University of Tehran)                     |
+| **Degree & Major**    | Master of Science (M.Sc.) in Computer Science                                                                           |
+| **Institution**       | Department of Mathematical Sciences, Sharif University of Technology, Tehran, Iran                                      |
+| **Research Lab**      | **TGML Lab** ([Trustworthy and Generative Machine Learning Lab](https://github.com/TGML-Lab))                           |
+| **Defense Date**      | 5 August 2026 (14 Mordad 1405)                                                                                          |
+| **Grade**             | Passed with Excellence (Highest Distinction)                                                                            |
 
 ---
 
